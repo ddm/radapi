@@ -7,8 +7,8 @@
     {
         "id": "e63a0402.19c5f8",
         "type": "swagger-doc",
-        "summary": "Get a list of items",
-        "description": "Return an array of items",
+        "summary": "List items",
+        "description": "Return the current list of items",
         "tags": "data",
         "consumes": "",
         "produces": "application/json",
@@ -23,8 +23,8 @@
     {
         "id": "80e4f5ca.7f1b08",
         "type": "swagger-doc",
-        "summary": "Add an item to the list",
-        "description": "",
+        "summary": "Create item",
+        "description": "Add a new item to the current list",
         "tags": "data",
         "consumes": "",
         "produces": "application/json",
@@ -38,7 +38,8 @@
                     "type": "object",
                     "properties": {
                         "name": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "The name of the item"
                         }
                     }
                 }
@@ -46,7 +47,7 @@
         ],
         "responses": {
             "201": {
-                "description": "Item successfully created"
+                "description": "Item created"
             }
         },
         "deprecated": false

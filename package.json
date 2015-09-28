@@ -7,6 +7,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
+    "postinstall": "bower install",
     "start": "node index",
     "test": "mocha",
     "dev": "node-debug --no-debug-brk --cli --no-preload --save-live-edit --web-host 127.0.0.1 index.js"

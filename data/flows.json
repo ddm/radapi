@@ -1,0 +1,176 @@
+[
+    {
+        "type": "tab",
+        "id": "239091d1.dc6f6e",
+        "label": "Example"
+    },
+    {
+        "id": "e63a0402.19c5f8",
+        "type": "swagger-doc",
+        "summary": "Get a list of items",
+        "description": "Return an array of items",
+        "tags": "data",
+        "consumes": "",
+        "produces": "application/json",
+        "parameters": [],
+        "responses": {
+            "200": {
+                "description": "The list of items"
+            }
+        },
+        "deprecated": false
+    },
+    {
+        "id": "80e4f5ca.7f1b08",
+        "type": "swagger-doc",
+        "summary": "Add an item to the list",
+        "description": "",
+        "tags": "data",
+        "consumes": "",
+        "produces": "application/json",
+        "parameters": [
+            {
+                "name": "data",
+                "in": "body",
+                "description": "The item to create",
+                "required": true,
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        ],
+        "responses": {
+            "201": {
+                "description": "Item successfully created"
+            }
+        },
+        "deprecated": false
+    },
+    {
+        "id": "c7ae6e07.38519",
+        "type": "http in",
+        "name": "",
+        "url": "/items",
+        "method": "get",
+        "swaggerDoc": "e63a0402.19c5f8",
+        "x": 190.5,
+        "y": 214,
+        "z": "239091d1.dc6f6e",
+        "wires": [
+            [
+                "6a8c6320.95739c",
+                "6d9e0d5a.9261f4"
+            ]
+        ]
+    },
+    {
+        "id": "6a8c6320.95739c",
+        "type": "debug",
+        "name": "log_url",
+        "active": true,
+        "console": "false",
+        "complete": "req.url",
+        "x": 370,
+        "y": 288,
+        "z": "239091d1.dc6f6e",
+        "wires": []
+    },
+    {
+        "id": "153431d3.eacbce",
+        "type": "http response",
+        "name": "created",
+        "x": 642,
+        "y": 397,
+        "z": "239091d1.dc6f6e",
+        "wires": []
+    },
+    {
+        "id": "6d9e0d5a.9261f4",
+        "type": "function",
+        "name": "list_items",
+        "func": "context.global.items = context.global.items || [];\nmsg.payload = context.global.items;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 389,
+        "y": 213,
+        "z": "239091d1.dc6f6e",
+        "wires": [
+            [
+                "86b4a038.794b6",
+                "418bf6d2.be7408"
+            ]
+        ]
+    },
+    {
+        "id": "86b4a038.794b6",
+        "type": "debug",
+        "name": "list",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 632,
+        "y": 229,
+        "z": "239091d1.dc6f6e",
+        "wires": []
+    },
+    {
+        "id": "ebde8c28.14217",
+        "type": "http in",
+        "name": "",
+        "url": "/item",
+        "method": "post",
+        "swaggerDoc": "80e4f5ca.7f1b08",
+        "x": 190,
+        "y": 379,
+        "z": "239091d1.dc6f6e",
+        "wires": [
+            [
+                "ccbad.fff33453",
+                "6a8c6320.95739c"
+            ]
+        ]
+    },
+    {
+        "id": "ccbad.fff33453",
+        "type": "function",
+        "name": "add_item",
+        "func": "context.global.items = context.global.items || [];\ncontext.global.items.push({\n    id: context.global.items.length,\n    name: msg.payload.name\n});\nmsg.statusCode = 201;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 388.5,
+        "y": 378,
+        "z": "239091d1.dc6f6e",
+        "wires": [
+            [
+                "153431d3.eacbce",
+                "2a839d7e.d57c62"
+            ]
+        ]
+    },
+    {
+        "id": "2a839d7e.d57c62",
+        "type": "debug",
+        "name": "item",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 642,
+        "y": 351,
+        "z": "239091d1.dc6f6e",
+        "wires": []
+    },
+    {
+        "id": "418bf6d2.be7408",
+        "type": "http response",
+        "name": "ok",
+        "x": 631,
+        "y": 178,
+        "z": "239091d1.dc6f6e",
+        "wires": []
+    }
+]

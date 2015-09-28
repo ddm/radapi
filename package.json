@@ -15,12 +15,15 @@
   "dependencies": {
     "bower": "1.5.3",
     "express": "4.13.3",
-    "node-red": "0.11.1",
+    "node-red": "https://github.com/ddm/node-red.git#WiP",
     "node-red-node-swagger": "node-red/node-red-node-swagger"
   },
   "devDependencies": {
     "node-inspector": "0.12.3",
     "npm-check-updates": "2.2.4",
     "v8-debug": "0.5.4"
+  },
+  "engines": {
+    "node": "0.12"
   }
 }

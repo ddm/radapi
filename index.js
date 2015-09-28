@@ -51,7 +51,7 @@ var settings = {
     // By default, the Node-RED UI is available at http://localhost:1880/
     // The following property can be used to specifiy a different root path.
     // If set to false, this is disabled.
-    httpAdminRoot: "/ui/",
+    httpAdminRoot: "/flows/",
 
     // You can protect the user interface with a userid and password by using the following property.
     // The password must be an md5 hash  eg.. 5f4dcc3b5aa765d61d8327deb882cf99 ('password')
@@ -151,7 +151,7 @@ var settings = {
         swagger: "2.0",
         info: {
           title: packageJson.name,
-          description: packageJson.description,
+          description: "[Edit](/flows)",
           version: packageJson.version
         }
       }
@@ -178,7 +178,7 @@ var settings = {
 
 RED.init(server, settings);
 
-// Serve the editor UI from /red
+// Serve the editor UI from /flows
 app.use(settings.httpAdminRoot, RED.httpAdmin);
 
 // Serve the http nodes UI from /api

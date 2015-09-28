@@ -8,8 +8,8 @@
         "id": "e63a0402.19c5f8",
         "type": "swagger-doc",
         "summary": "List items",
-        "description": "Return the current list of items",
-        "tags": "data",
+        "description": "Get the current list of items",
+        "tags": "items",
         "consumes": "",
         "produces": "application/json",
         "parameters": [],
@@ -23,23 +23,23 @@
     {
         "id": "80e4f5ca.7f1b08",
         "type": "swagger-doc",
-        "summary": "Create item",
+        "summary": "Add item",
         "description": "Add a new item to the current list",
-        "tags": "data",
-        "consumes": "",
+        "tags": "items",
+        "consumes": "application/json",
         "produces": "application/json",
         "parameters": [
             {
                 "name": "data",
                 "in": "body",
-                "description": "The item to create",
+                "description": "The new item",
                 "required": true,
                 "schema": {
                     "type": "object",
                     "properties": {
                         "name": {
                             "type": "string",
-                            "description": "The name of the item"
+                            "description": "The name of the new item"
                         }
                     }
                 }

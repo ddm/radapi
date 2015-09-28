@@ -1,16 +1,16 @@
 {
-  "name": "my-api",
+  "name": "radapi",
   "version": "0.0.0",
-  "description": "My API",
-  "author": "me",
+  "description": "RAD API",
+  "author": "Dimitri del Marmol",
   "license": "MIT",
   "private": true,
   "main": "index.js",
   "scripts": {
     "postinstall": "bower install",
     "start": "node index",
-    "test": "mocha",
-    "dev": "node-debug --no-debug-brk --cli --no-preload --save-live-edit --web-host 127.0.0.1 index.js"
+    "dev": "node-debug --no-debug-brk --cli --no-preload --save-live-edit --web-host 127.0.0.1 index.js",
+    "check-updates": "ncu -ua"
   },
   "dependencies": {
     "bower": "1.5.3",
@@ -19,7 +19,6 @@
     "node-red-node-swagger": "node-red/node-red-node-swagger"
   },
   "devDependencies": {
-    "mocha": "2.3.3",
     "node-inspector": "0.12.3",
     "npm-check-updates": "2.2.4",
     "v8-debug": "0.5.4"

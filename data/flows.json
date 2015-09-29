@@ -133,20 +133,20 @@
         "z": "239091d1.dc6f6e",
         "wires": [
             [
-                "6a8c6320.95739c",
-                "6d9e0d5a.9261f4"
+                "6d9e0d5a.9261f4",
+                "7605d8ff.89fa28"
             ]
         ]
     },
     {
         "id": "6a8c6320.95739c",
         "type": "debug",
-        "name": "log_url",
+        "name": "log_req_body",
         "active": true,
         "console": "false",
-        "complete": "req.url",
-        "x": 301,
-        "y": 185,
+        "complete": "req.body",
+        "x": 332,
+        "y": 275,
         "z": "239091d1.dc6f6e",
         "wires": []
     },
@@ -154,7 +154,7 @@
         "id": "153431d3.eacbce",
         "type": "http response",
         "name": "created",
-        "x": 650,
+        "x": 671,
         "y": 282,
         "z": "239091d1.dc6f6e",
         "wires": []
@@ -201,7 +201,8 @@
         "wires": [
             [
                 "6a8c6320.95739c",
-                "da96d465.256928"
+                "da96d465.256928",
+                "7605d8ff.89fa28"
             ]
         ]
     },
@@ -212,7 +213,7 @@
         "func": "context.global.items = context.global.items || [];\nvar newItem = {\n  id: context.global.items.length,\n  name: msg.payload.name,\n  description: msg.payload.description,\n  created: new Date()\n};\ncontext.global.items.push(newItem);\nmsg.payload = newItem;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 501.5,
+        "x": 522.5,
         "y": 256,
         "z": "239091d1.dc6f6e",
         "wires": [
@@ -229,7 +230,7 @@
         "active": true,
         "console": "false",
         "complete": "payload",
-        "x": 644,
+        "x": 665,
         "y": 228,
         "z": "239091d1.dc6f6e",
         "wires": []
@@ -337,5 +338,17 @@
                 "15ca254c.ea35db"
             ]
         ]
+    },
+    {
+        "id": "7605d8ff.89fa28",
+        "type": "debug",
+        "name": "log_req_url",
+        "active": true,
+        "console": "false",
+        "complete": "req.url",
+        "x": 321,
+        "y": 183,
+        "z": "239091d1.dc6f6e",
+        "wires": []
     }
 ]

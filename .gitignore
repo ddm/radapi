@@ -4,3 +4,4 @@ public/lib
 .idea
 *.log
 data/.*
+.node-inspectorrc

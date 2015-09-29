@@ -15,7 +15,30 @@
         "parameters": [],
         "responses": {
             "200": {
-                "description": "The list of items"
+                "description": "The list of items",
+                "schema": {
+                    "type": "array",
+                    "items": {
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "type": "number",
+                                    "format": "int64"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "description": {
+                                    "type": "string"
+                                },
+                                "created": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                }
+                            }
+                        }
+                    }
+                }
             }
         },
         "deprecated": false
@@ -39,7 +62,13 @@
                     "properties": {
                         "name": {
                             "type": "string",
-                            "description": "The name of the new item"
+                            "name": "name",
+                            "propertyRow": true
+                        },
+                        "description": {
+                            "type": "string",
+                            "name": "description",
+                            "propertyRow": true
                         }
                     }
                 }
@@ -47,7 +76,47 @@
         ],
         "responses": {
             "201": {
-                "description": "Item created"
+                "description": "Item created",
+                "schema": {
+                    "properties": {
+                        "id": {
+                            "type": "number",
+                            "format": "int64",
+                            "name": "id",
+                            "propertyRow": true
+                        },
+                        "name": {
+                            "type": "string",
+                            "name": "name",
+                            "propertyRow": true
+                        },
+                        "description": {
+                            "type": "string",
+                            "name": "description",
+                            "propertyRow": true
+                        },
+                        "created": {
+                            "type": "string",
+                            "format": "date-time",
+                            "name": "created",
+                            "propertyRow": true
+                        }
+                    }
+                },
+                "code": "201"
+            },
+            "400": {
+                "description": "Bad request",
+                "schema": {
+                    "properties": {
+                        "error": {
+                            "type": "string",
+                            "name": "error",
+                            "propertyRow": true
+                        }
+                    }
+                },
+                "code": "400"
             }
         },
         "deprecated": false
@@ -59,8 +128,8 @@
         "url": "/items",
         "method": "get",
         "swaggerDoc": "e63a0402.19c5f8",
-        "x": 190.5,
-        "y": 214,
+        "x": 168.5,
+        "y": 111,
         "z": "239091d1.dc6f6e",
         "wires": [
             [
@@ -76,8 +145,8 @@
         "active": true,
         "console": "false",
         "complete": "req.url",
-        "x": 370,
-        "y": 288,
+        "x": 348,
+        "y": 185,
         "z": "239091d1.dc6f6e",
         "wires": []
     },
@@ -85,8 +154,8 @@
         "id": "153431d3.eacbce",
         "type": "http response",
         "name": "created",
-        "x": 642,
-        "y": 397,
+        "x": 688,
+        "y": 294,
         "z": "239091d1.dc6f6e",
         "wires": []
     },
@@ -97,8 +166,8 @@
         "func": "context.global.items = context.global.items || [];\nmsg.payload = context.global.items;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 389,
-        "y": 213,
+        "x": 367,
+        "y": 110,
         "z": "239091d1.dc6f6e",
         "wires": [
             [
@@ -114,8 +183,8 @@
         "active": true,
         "console": "false",
         "complete": "payload",
-        "x": 632,
-        "y": 229,
+        "x": 610,
+        "y": 126,
         "z": "239091d1.dc6f6e",
         "wires": []
     },
@@ -126,13 +195,14 @@
         "url": "/item",
         "method": "post",
         "swaggerDoc": "80e4f5ca.7f1b08",
-        "x": 190,
-        "y": 379,
+        "x": 168,
+        "y": 276,
         "z": "239091d1.dc6f6e",
         "wires": [
             [
-                "ccbad.fff33453",
-                "6a8c6320.95739c"
+                "6a8c6320.95739c",
+                "da96d465.256928",
+                "94e0ad68.6b1f5"
             ]
         ]
     },
@@ -140,11 +210,11 @@
         "id": "ccbad.fff33453",
         "type": "function",
         "name": "add_item",
-        "func": "context.global.items = context.global.items || [];\nvar newItem = {\n  id: context.global.items.length,\n  name: msg.payload.name\n};\ncontext.global.items.push(newItem);\nmsg.statusCode = 201;\nmsg.payload = newItem;\nreturn msg;",
+        "func": "context.global.items = context.global.items || [];\nvar newItem = {\n  id: context.global.items.length,\n  name: msg.payload.name,\n  description: msg.payload.description,\n  created: new Date()\n};\ncontext.global.items.push(newItem);\nmsg.payload = newItem;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 388.5,
-        "y": 378,
+        "x": 539.5,
+        "y": 268,
         "z": "239091d1.dc6f6e",
         "wires": [
             [
@@ -160,8 +230,8 @@
         "active": true,
         "console": "false",
         "complete": "payload",
-        "x": 642,
-        "y": 351,
+        "x": 682,
+        "y": 247,
         "z": "239091d1.dc6f6e",
         "wires": []
     },
@@ -169,8 +239,106 @@
         "id": "418bf6d2.be7408",
         "type": "http response",
         "name": "ok",
-        "x": 631,
-        "y": 178,
+        "x": 609,
+        "y": 75,
+        "z": "239091d1.dc6f6e",
+        "wires": []
+    },
+    {
+        "id": "da96d465.256928",
+        "type": "switch",
+        "name": "has_name",
+        "property": "payload.name",
+        "rules": [
+            {
+                "t": "nnull"
+            },
+            {
+                "t": "null"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 365,
+        "y": 381,
+        "z": "239091d1.dc6f6e",
+        "wires": [
+            [
+                "4701ae74.b8fe5"
+            ],
+            [
+                "98dd8ba0.672278"
+            ]
+        ]
+    },
+    {
+        "id": "15ca254c.ea35db",
+        "type": "http response",
+        "name": "refused",
+        "x": 692,
+        "y": 405,
+        "z": "239091d1.dc6f6e",
+        "wires": []
+    },
+    {
+        "id": "4701ae74.b8fe5",
+        "type": "change",
+        "name": "201",
+        "rules": [
+            {
+                "t": "set",
+                "p": "statusCode",
+                "to": "201"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 536,
+        "y": 354,
+        "z": "239091d1.dc6f6e",
+        "wires": [
+            [
+                "ccbad.fff33453"
+            ]
+        ]
+    },
+    {
+        "id": "98dd8ba0.672278",
+        "type": "change",
+        "name": "400",
+        "rules": [
+            {
+                "t": "set",
+                "p": "statusCode",
+                "to": "400"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 539,
+        "y": 407,
+        "z": "239091d1.dc6f6e",
+        "wires": [
+            [
+                "15ca254c.ea35db"
+            ]
+        ]
+    },
+    {
+        "id": "94e0ad68.6b1f5",
+        "type": "debug",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 339,
+        "y": 475,
         "z": "239091d1.dc6f6e",
         "wires": []
     }

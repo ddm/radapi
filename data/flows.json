@@ -140,7 +140,7 @@
         "id": "ccbad.fff33453",
         "type": "function",
         "name": "add_item",
-        "func": "context.global.items = context.global.items || [];\ncontext.global.items.push({\n    id: context.global.items.length,\n    name: msg.payload.name\n});\nmsg.statusCode = 201;\nreturn msg;",
+        "func": "context.global.items = context.global.items || [];\nvar newItem = {\n  id: context.global.items.length,\n  name: msg.payload.name\n};\ncontext.global.items.push(newItem);\nmsg.statusCode = 201;\nmsg.payload = newItem;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 388.5,

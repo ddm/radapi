@@ -201,8 +201,7 @@
         "wires": [
             [
                 "6a8c6320.95739c",
-                "da96d465.256928",
-                "94e0ad68.6b1f5"
+                "da96d465.256928"
             ]
         ]
     },
@@ -276,7 +275,7 @@
         "type": "http response",
         "name": "refused",
         "x": 692,
-        "y": 405,
+        "y": 407,
         "z": "239091d1.dc6f6e",
         "wires": []
     },
@@ -329,17 +328,5 @@
                 "15ca254c.ea35db"
             ]
         ]
-    },
-    {
-        "id": "94e0ad68.6b1f5",
-        "type": "debug",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "true",
-        "x": 339,
-        "y": 475,
-        "z": "239091d1.dc6f6e",
-        "wires": []
     }
 ]

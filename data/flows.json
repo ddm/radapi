@@ -128,7 +128,7 @@
         "url": "/items",
         "method": "get",
         "swaggerDoc": "e63a0402.19c5f8",
-        "x": 168.5,
+        "x": 121.5,
         "y": 111,
         "z": "239091d1.dc6f6e",
         "wires": [
@@ -145,7 +145,7 @@
         "active": true,
         "console": "false",
         "complete": "req.url",
-        "x": 348,
+        "x": 301,
         "y": 185,
         "z": "239091d1.dc6f6e",
         "wires": []
@@ -154,8 +154,8 @@
         "id": "153431d3.eacbce",
         "type": "http response",
         "name": "created",
-        "x": 688,
-        "y": 294,
+        "x": 650,
+        "y": 282,
         "z": "239091d1.dc6f6e",
         "wires": []
     },
@@ -166,7 +166,7 @@
         "func": "context.global.items = context.global.items || [];\nmsg.payload = context.global.items;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 367,
+        "x": 320,
         "y": 110,
         "z": "239091d1.dc6f6e",
         "wires": [
@@ -183,7 +183,7 @@
         "active": true,
         "console": "false",
         "complete": "payload",
-        "x": 610,
+        "x": 561,
         "y": 126,
         "z": "239091d1.dc6f6e",
         "wires": []
@@ -195,7 +195,7 @@
         "url": "/item",
         "method": "post",
         "swaggerDoc": "80e4f5ca.7f1b08",
-        "x": 168,
+        "x": 121,
         "y": 276,
         "z": "239091d1.dc6f6e",
         "wires": [
@@ -212,8 +212,8 @@
         "func": "context.global.items = context.global.items || [];\nvar newItem = {\n  id: context.global.items.length,\n  name: msg.payload.name,\n  description: msg.payload.description,\n  created: new Date()\n};\ncontext.global.items.push(newItem);\nmsg.payload = newItem;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 539.5,
-        "y": 268,
+        "x": 501.5,
+        "y": 256,
         "z": "239091d1.dc6f6e",
         "wires": [
             [
@@ -229,8 +229,8 @@
         "active": true,
         "console": "false",
         "complete": "payload",
-        "x": 682,
-        "y": 247,
+        "x": 644,
+        "y": 228,
         "z": "239091d1.dc6f6e",
         "wires": []
     },
@@ -238,8 +238,8 @@
         "id": "418bf6d2.be7408",
         "type": "http response",
         "name": "ok",
-        "x": 609,
-        "y": 75,
+        "x": 562,
+        "y": 83,
         "z": "239091d1.dc6f6e",
         "wires": []
     },
@@ -258,7 +258,7 @@
         ],
         "checkall": "true",
         "outputs": 2,
-        "x": 365,
+        "x": 318,
         "y": 381,
         "z": "239091d1.dc6f6e",
         "wires": [
@@ -274,7 +274,7 @@
         "id": "15ca254c.ea35db",
         "type": "http response",
         "name": "refused",
-        "x": 692,
+        "x": 645,
         "y": 407,
         "z": "239091d1.dc6f6e",
         "wires": []
@@ -295,7 +295,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 536,
+        "x": 492,
         "y": 354,
         "z": "239091d1.dc6f6e",
         "wires": [
@@ -329,7 +329,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 539,
+        "x": 492,
         "y": 407,
         "z": "239091d1.dc6f6e",
         "wires": [

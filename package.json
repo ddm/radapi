@@ -16,7 +16,7 @@
     "bower": "1.5.3",
     "express": "4.13.3",
     "node-red": "https://github.com/ddm/node-red.git#WiP",
-    "node-red-node-swagger": "node-red/node-red-node-swagger"
+    "node-red-node-swagger": "https://github.com/ddm/node-red-node-swagger#WiP"
   },
   "devDependencies": {
     "node-inspector": "0.12.3",

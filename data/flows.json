@@ -310,6 +310,15 @@
         "name": "400",
         "rules": [
             {
+                "t": "delete",
+                "p": "payload"
+            },
+            {
+                "t": "set",
+                "p": "payload.error",
+                "to": "Bad request"
+            },
+            {
                 "t": "set",
                 "p": "statusCode",
                 "to": "400"

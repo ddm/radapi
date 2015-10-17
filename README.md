@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
- * [Node.js 0.12](https://nodejs.org/dist/v0.12.7/) to run the project
+ * [Node.js](https://nodejs.org/) to run the project (tested with 0.12.x and 4.x)
  * [git](https://git-scm.com/) (optional) to get the sources
 
 ### Bonus
@@ -20,6 +20,6 @@ or just download the [latest version](https://github.com/ddm/radapi/archive/mast
 
     $ npm start
 
-Navigate to [localhost:8000](http://localhost:8000/) for the API specification.
+Navigate to [localhost:8000](http://localhost:1880/) for the API specification.
 
-Navigate to [localhost:8000/flows](http://localhost:8000/flows/) to edit your application.
+Navigate to [localhost:8000/flows](http://localhost:1880/flows/) to edit your application.

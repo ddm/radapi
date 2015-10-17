@@ -2,13 +2,15 @@
 "use strict";
 
 var http = require("http");
+var path = require("path");
+
 var express = require("express");
 var RED = require("node-red");
 
 var packageJson = require("./package.json");
 
 var app = express();
-app.use("/", express.static("public"));
+app.use("/", express.static(path.resolve(__dirname, "public")));
 var server = http.createServer(app);
 
 // See default settings.js file for other options
@@ -42,16 +44,16 @@ var settings = {
 
     // By default, all user data is stored in the Node-RED install directory. To
     // use a different location, the following property can be used
-    userDir: "data",
+    userDir: path.resolve(__dirname, "data"),
 
     // Node-RED scans the `nodes` directory in the install directory to find nodes.
     // The following property can be used to specify an additional directory to scan.
-    nodesDir: "data/nodes",
+    nodesDir: path.resolve(__dirname, "data/nodes"),
 
     // By default, the Node-RED UI is available at http://localhost:1880/
     // The following property can be used to specifiy a different root path.
     // If set to false, this is disabled.
-    httpAdminRoot: "/flows/",
+    httpAdminRoot: "/edit/",
 
     // You can protect the user interface with a userid and password by using the following property.
     // The password must be an md5 hash  eg.. 5f4dcc3b5aa765d61d8327deb882cf99 ('password')
@@ -151,7 +153,7 @@ var settings = {
         swagger: "2.0",
         info: {
           title: packageJson.name,
-          description: "[Edit](/flows)",
+          description: "REST API [Edit](/edit/)",
           version: packageJson.version
         }
       }
@@ -178,12 +180,9 @@ var settings = {
 
 RED.init(server, settings);
 
-// Serve the editor UI from /flows
 app.use(settings.httpAdminRoot, RED.httpAdmin);
-
-// Serve the http nodes UI from /api
 app.use(settings.httpNodeRoot, RED.httpNode);
 
-server.listen(8000);
+server.listen(settings.uiPort);
 
 RED.start();

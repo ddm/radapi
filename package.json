@@ -13,10 +13,7 @@
   "dependencies": {
     "bower": "1.5.3",
     "express": "4.13.3",
-    "node-red": "https://github.com/ddm/node-red.git#WiP",
+    "node-red": "^0.11.2",
     "node-red-node-swagger": "https://github.com/ddm/node-red-node-swagger#WiP"
-  },
-  "engines": {
-    "node": "0.12"
   }
 }

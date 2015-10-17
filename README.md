@@ -20,6 +20,6 @@ or just download the [latest version](https://github.com/ddm/radapi/archive/mast
 
     $ npm start
 
-Navigate to [localhost:8000](http://localhost:1880/) for the API specification.
+Navigate to [localhost:1880](http://localhost:1880/) for the API specification.
 
-Navigate to [localhost:8000/flows](http://localhost:1880/flows/) to edit your application.
+Navigate to [localhost:1880/edit/](http://localhost:1880/edit/) to edit your application.

@@ -9,10 +9,6 @@ var RED = require("node-red");
 
 var packageJson = require("./package.json");
 
-var app = express();
-app.use("/", express.static(path.resolve(__dirname, "public")));
-var server = http.createServer(app);
-
 // See default settings.js file for other options
 var settings = {
     // the tcp port that the Node-RED web server is listening on
@@ -177,6 +173,13 @@ var settings = {
         }
     }
 };
+
+var app = express();
+app.disable("x-powered-by");
+app.set("etag", "strong");
+app.use("/", express.static(path.resolve(__dirname, "public")));
+
+var server = http.createServer(app);
 
 RED.init(server, settings);
 

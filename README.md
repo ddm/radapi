@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
- * [Node.js](https://nodejs.org/) to run the project (tested with 0.12.x and 4.x)
+ * [Node.js](https://nodejs.org/) to run the project
  * [git](https://git-scm.com/) (optional) to get the sources
 
 ### Bonus

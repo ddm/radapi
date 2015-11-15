@@ -147,7 +147,7 @@ var settings = {
         swagger: "2.0",
         info: {
           title: packageJson.name,
-          description: "REST API ([Edit](/edit/))",
+          description: "[Edit](/edit/)",
           version: packageJson.version
         }
       }
@@ -164,7 +164,7 @@ var settings = {
             // info - record information about the general running of the application + warn + error + fatal errors
             // debug - record information which is more verbose than info + info + warn + error + fatal errors
             // trace - record very detailed logging + debug + info + warn + error + fatal errors
-            level: "trace",
+            level: "info",
 
             // Whether or not to include metric events in the log output
             metrics: false

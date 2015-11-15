@@ -1,7 +1,64 @@
 [
     {
         "type": "tab",
-        "id": "401b77c3.bfe488",
-        "label": "Sheet 1"
+        "id": "83c80c12.7c37f",
+        "label": "Hello World "
+    },
+    {
+        "id": "75f88ab1.8a0774",
+        "type": "swagger-doc",
+        "summary": "Test",
+        "description": "Says \"Hello World!\"",
+        "tags": "test",
+        "consumes": "",
+        "produces": "text/plain",
+        "parameters": [],
+        "responses": {
+            "200": {
+                "description": "Hello World!"
+            }
+        },
+        "deprecated": false
+    },
+    {
+        "id": "a4cb61f2.5b34a",
+        "type": "http in",
+        "name": "hello",
+        "url": "/hello",
+        "method": "get",
+        "swaggerDoc": "75f88ab1.8a0774",
+        "x": 174,
+        "y": 180,
+        "z": "83c80c12.7c37f",
+        "wires": [
+            [
+                "bd48083d.42b7f8"
+            ]
+        ]
+    },
+    {
+        "id": "ade6a9d9.521958",
+        "type": "http response",
+        "name": "ok",
+        "x": 542,
+        "y": 180,
+        "z": "83c80c12.7c37f",
+        "wires": []
+    },
+    {
+        "id": "bd48083d.42b7f8",
+        "type": "template",
+        "name": "Hello World!",
+        "field": "payload",
+        "format": "text",
+        "template": "Hello World!",
+        "x": 357,
+        "y": 180,
+        "z": "83c80c12.7c37f",
+        "wires": [
+            [
+                "ade6a9d9.521958"
+            ]
+        ]
     }
 ]

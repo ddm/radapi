@@ -14,9 +14,6 @@ var settings = {
     // the tcp port that the Node-RED web server is listening on
     uiPort: 1880,
 
-    // By default, the Node-RED UI accepts connections on all IPv4 interfaces.
-    uiHost: "127.0.0.1",
-
     // Retry time in milliseconds for MQTT connections
     mqttReconnectTime: 15000,
 
@@ -149,7 +146,7 @@ var settings = {
         swagger: "2.0",
         info: {
           title: packageJson.name,
-          description: "REST API [Edit](/edit/)",
+          description: "REST API ([Edit](/edit/))",
           version: packageJson.version
         }
       }

@@ -13,6 +13,7 @@ var packageJson = require("./package.json");
 var settings = {
     // the tcp port that the Node-RED web server is listening on
     uiPort: 1880,
+    uiHost: "0.0.0.0",
 
     // Retry time in milliseconds for MQTT connections
     mqttReconnectTime: 15000,

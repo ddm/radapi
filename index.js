@@ -147,7 +147,7 @@ var settings = {
         swagger: "2.0",
         info: {
           title: packageJson.name,
-          description: "[Edit](/edit/)",
+          description: "[Edit](/edit/) | [HTTP](https://tools.ietf.org/html/rfc2616)",
           version: packageJson.version
         }
       }

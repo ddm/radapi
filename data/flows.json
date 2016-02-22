@@ -2,7 +2,7 @@
     {
         "type": "tab",
         "id": "be1e0b7a.41e1f8",
-        "label": "Flow 1"
+        "label": "Hello World"
     },
     {
         "id": "75f88ab1.8a0774",
@@ -88,7 +88,7 @@
         "type": "function",
         "z": "be1e0b7a.41e1f8",
         "name": "text/plain",
-        "func": "msg.res.set('Content-Type', 'text/plain');\nreturn msg;",
+        "func": "msg.headers = {\n    'Content-Type': 'text/plain',\n    'x-powered-by': 'radapi'\n};\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 380,

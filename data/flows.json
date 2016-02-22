@@ -88,7 +88,7 @@
         "type": "function",
         "z": "be1e0b7a.41e1f8",
         "name": "text/plain",
-        "func": "msg.res.header('Content-Type', 'text/plain');\nreturn msg;",
+        "func": "msg.res.set('Content-Type', 'text/plain');\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 380,

@@ -57,7 +57,7 @@ var settings = {
     // By default, these are served relative to '/'. The following property
     // can be used to specifiy a different root path. If set to false, this is
     // disabled.
-    httpNodeRoot: "/api/",
+    httpNodeRoot: "/endpoints/",
 
     // To password protect the node-defined HTTP endpoints, the following property
     // can be used.

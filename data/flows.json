@@ -33,11 +33,11 @@
         "id": "a4cb61f2.5b34a",
         "type": "http in",
         "z": "be1e0b7a.41e1f8",
-        "name": "GET /api/hello",
+        "name": "GET /endpoints/hello",
         "url": "/hello",
         "method": "get",
         "swaggerDoc": "75f88ab1.8a0774",
-        "x": 74.5,
+        "x": 104.5,
         "y": 118,
         "wires": [
             [
@@ -50,7 +50,7 @@
         "type": "http response",
         "z": "be1e0b7a.41e1f8",
         "name": "OK",
-        "x": 499,
+        "x": 550.9999847412109,
         "y": 118,
         "wires": []
     },
@@ -62,7 +62,7 @@
         "field": "payload",
         "format": "handlebars",
         "template": "Hello World! {{req.query.name}}",
-        "x": 242,
+        "x": 293.99998474121094,
         "y": 118,
         "wires": [
             [
@@ -79,7 +79,7 @@
         "active": true,
         "console": "false",
         "complete": "payload",
-        "x": 404,
+        "x": 455.99998474121094,
         "y": 71,
         "wires": []
     },
@@ -91,7 +91,7 @@
         "func": "msg.headers = {\n    'Content-Type': 'text/plain',\n    'x-powered-by': 'radapi'\n};\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 380,
+        "x": 431.99998474121094,
         "y": 153,
         "wires": [
             [

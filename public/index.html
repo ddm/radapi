@@ -33,7 +33,7 @@
         supportedSubmitMethods: ["get", "post", "put", "delete", "patch"],
         onComplete: function(swaggerApi, swaggerUi){
           $("pre code").each(function(i, e) {
-            hljs.highlightBlock(e)
+            hljs.highlightBlock(e);
           });
           log("SwaggerUI loaded from", url);
         },

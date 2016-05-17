@@ -8,12 +8,16 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "bower install",
-    "start": "node index"
+    "start": "node index",
+    "upgrade": "ncu -u && npm i"
   },
   "dependencies": {
-    "bower": "1.7.7",
+    "bower": "1.7.9",
     "express": "4.13.4",
-    "node-red": "0.13.2",
+    "node-red": "0.13.4",
     "node-red-node-swagger": "https://github.com/ddm/node-red-node-swagger#WiP"
+  },
+  "devDependencies": {
+    "npm-check-updates": "2.6.5"
   }
 }

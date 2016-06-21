@@ -15,7 +15,8 @@
     "bower": "1.7.9",
     "express": "4.13.4",
     "node-red": "0.13.4",
-    "node-red-node-swagger": "https://github.com/ddm/node-red-node-swagger#WiP"
+    "node-red-node-swagger": "https://github.com/ddm/node-red-node-swagger#WiP",
+    "underscore": "1.8.3"
   },
   "devDependencies": {
     "npm-check-updates": "2.6.5"

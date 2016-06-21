@@ -134,7 +134,8 @@ var settings = {
         // bonescript:require('bonescript'),
         // jfive:require('johnny-five'),
         // j5board:require('johnny-five').Board({repl:false})
-        crypto: require('crypto')
+        crypto: require('crypto'),
+        _: require('underscore')
     },
 
     // The following property can be used to order the categories in the editor

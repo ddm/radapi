@@ -28,7 +28,7 @@ var settings = {
     socketTimeout: 120000,
 
     // The maximum length, in characters, of any message sent to the debug sidebar tab
-    debugMaxLength: 1000,
+    debugMaxLength: 5000,
 
     // The file containing the flows. If not set, it defaults to flows_<hostname>.json
     flowFile: "flows.json",
@@ -103,7 +103,7 @@ var settings = {
     // details on its contents. The following is a basic permissive set of options:
     httpNodeCors: {
         origin: "*",
-        methods: "GET,PUT,POST,DELETE"
+        methods: "GET,PUT,PATCH,POST,DELETE"
     },
 
     // If you need to set an http proxy please set an environment variable
@@ -135,7 +135,8 @@ var settings = {
         // jfive:require('johnny-five'),
         // j5board:require('johnny-five').Board({repl:false})
         crypto: require('crypto'),
-        _: require('underscore')
+        _: require('underscore'),
+        async: require('async')
     },
 
     // The following property can be used to order the categories in the editor

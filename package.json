@@ -12,6 +12,7 @@
     "upgrade": "ncu -u && npm i"
   },
   "dependencies": {
+    "async": "2.0.0-rc.6",
     "bower": "1.7.9",
     "express": "4.13.4",
     "node-red": "0.13.4",

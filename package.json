@@ -1,13 +1,13 @@
 {
   "name": "radapi",
-  "version": "0.0.0",
+  "versiopn": "0.0.0",
   "description": "RAD API",
   "author": "Dimitri del Marmol",
   "license": "MIT",
   "private": true,
   "main": "index.js",
   "scripts": {
-    "postinstall": "bower install",
+    "postinstall": "bower install && cd node_modules/node-red-node-swagger/ && npm install && cd node_modules/swagger-ui/ && npm install && npm build",
     "start": "node index",
     "upgrade": "ncu -u && npm i"
   },

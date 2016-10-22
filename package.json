@@ -7,19 +7,19 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "postinstall": "bower install && cd node_modules/node-red-node-swagger/ && npm install && cd node_modules/swagger-ui/ && npm install && npm build",
+    "postinstall": "bower install && cd node_modules/node-red-node-swagger/ && npm install && cd node_modules/swagger-ui/ && npm install && gulp",
     "start": "node index",
     "upgrade": "ncu -u && npm i"
   },
   "dependencies": {
-    "async": "2.0.0-rc.6",
+    "async": "2.1.2",
     "bower": "1.7.9",
     "express": "4.14.0",
-    "node-red": "0.13.4",
-    "node-red-node-swagger": "https://github.com/ddm/node-red-node-swagger#WiP",
+    "node-red": "0.15.1",
+    "node-red-node-swagger": "0.1.8",
     "underscore": "1.8.3"
   },
   "devDependencies": {
-    "npm-check-updates": "2.6.7"
+    "npm-check-updates": "2.8.6"
   }
 }

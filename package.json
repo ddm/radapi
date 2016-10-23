@@ -7,7 +7,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "postinstall": "bower install && cd node_modules/node-red-node-swagger/ && npm install && cd node_modules/swagger-ui/ && npm install && gulp",
+    "postinstall": "bower install",
     "start": "node index",
     "upgrade": "ncu -u && npm i"
   },

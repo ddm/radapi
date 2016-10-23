@@ -9,7 +9,7 @@
   "scripts": {
     "postinstall": "bower install",
     "start": "node index",
-    "upgrade": "ncu -u && npm i"
+    "upgrade": "ncu -u && npm install && nsp check --output summary"
   },
   "dependencies": {
     "async": "2.1.2",
@@ -20,6 +20,8 @@
     "underscore": "1.8.3"
   },
   "devDependencies": {
-    "npm-check-updates": "2.8.6"
+    "npm-check-updates": "2.8.6",
+    "nsp": "^2.6.2",
+    "nsp-formatter-checkstyle": "^1.0.1"
   }
 }

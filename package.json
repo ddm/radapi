@@ -13,10 +13,10 @@
   },
   "dependencies": {
     "async": "2.1.2",
-    "bower": "1.7.9",
+    "bower": "1.8.0",
     "express": "4.14.0",
-    "node-red": "0.15.1",
-    "node-red-node-swagger": "0.1.8",
+    "node-red-ddm": "0.15.x",
+    "node-red-node-swagger-ddm": "0.1.x",
     "underscore": "1.8.3"
   },
   "devDependencies": {

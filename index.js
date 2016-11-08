@@ -5,7 +5,7 @@ var http = require("http");
 var path = require("path");
 
 var express = require("express");
-var RED = require("node-red");
+var RED = require("node-red-ddm");
 
 var packageJson = require("./package.json");
 

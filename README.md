@@ -2,7 +2,7 @@
 
 ## tl;dr
 
-  $ docker run dimdm/radapi
+  $ docker run -p 1880:1880 dimdm/radapi
 
 ## Prerequisites
 

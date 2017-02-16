@@ -1,6 +1,6 @@
-FROM node
+FROM node:alpine
 
-RUN apt-get update && apt-get upgrade -y && apt-get install -y git
+RUN apk add --update-cache git
 
 ADD provision.sh /usr/sbin/
 RUN /usr/sbin/provision.sh

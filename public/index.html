@@ -30,14 +30,14 @@
         dom_id: "swagger-ui-container",
         supportedSubmitMethods: ["get", "post", "put", "delete", "patch"],
         validatorUrl: null,
-        onComplete: function(data) {
-          if(window.swaggerUi.api.apisArray.length == 0){
+        onComplete: function (data) {
+          if (window.swaggerUi.api.apisArray.length === 0) {
               $('.empty-swagger-doc').show(1000);
-          } else{
+          } else {
               $('.empty-swagger-doc').hide(10);
           }
         },
-        onFailure: function(data) {
+        onFailure: function (data) {
           console.log("Unable to load SwaggerUI");
         },
       });
@@ -45,8 +45,9 @@
           resGetPath: '/edit/swagger-ui/nls/__lng__/__ns__.json',
           load: 'current',
           ns: 'swagger',
+          lng: 'en-us',
           fallbackLng: 'en-us'
-      }, function() {
+      }, function () {
           $('.empty-swagger-doc').i18n();
       });
       window.swaggerUi.load();

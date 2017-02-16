@@ -1,16 +1,24 @@
 {
   "name": "radapi",
-  "versiopn": "0.0.0",
+  "version": "0.0.0",
   "description": "RAD API",
   "author": "Dimitri del Marmol",
   "license": "MIT",
-  "private": true,
+  "preferGlobal": true,
+  "engines": {
+    "node": ">=6"
+  },
   "main": "index.js",
+  "bin": {
+    "radapi": "index.js"
+  },
   "scripts": {
     "postinstall": "bower install",
     "start": "node index",
-    "upgrade": "ncu -u && npm install && nsp check --output summary",
-    "build": "docker build . -t dimdm/radapi",
+    "upgrade": "ncu -ua && npm install && nsp check --output summary",
+    "audit": "nsp check",
+    "lint": "eslint *.js",
+    "build": "npm run lint && docker build . -t dimdm/radapi",
     "push": "docker push dimdm/radapi"
   },
   "dependencies": {

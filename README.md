@@ -1,8 +1,10 @@
+[![Docker Automated buil](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)](https://hub.docker.com/r/dimdm/radapi/)
+
 # RAD API
 
 ## tl;dr
 
-  $ docker run -p 1880:1880 dimdm/radapi
+  `$ docker run -p 1880:1880 dimdm/radapi`
 
 ## Prerequisites
 

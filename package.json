@@ -18,8 +18,7 @@
     "upgrade": "ncu -ua && npm install && nsp check --output summary",
     "audit": "nsp check",
     "lint": "eslint *.js",
-    "build": "npm run lint && docker build . -t dimdm/radapi",
-    "push": "docker push dimdm/radapi"
+    "build": "npm run lint && docker build . -t dimdm/radapi"
   },
   "dependencies": {
     "async": "2.1.4",

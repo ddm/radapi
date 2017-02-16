@@ -16,10 +16,11 @@
 
     $ git clone https://github.com/ddm/radapi.git && cd radapi && npm install
 
-## Use
+## Start
 
     $ npm start
 
+## Use
 
 API specification @ [localhost:1880](http://localhost:1880/)
 

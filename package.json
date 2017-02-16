@@ -17,8 +17,7 @@
     "start": "node index",
     "upgrade": "ncu -ua && npm install && nsp check --output summary",
     "audit": "nsp check",
-    "lint": "eslint *.js",
-    "build": "npm run lint && docker build . -t dimdm/radapi"
+    "lint": "eslint *.js"
   },
   "dependencies": {
     "async": "2.1.4",

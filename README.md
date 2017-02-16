@@ -1,5 +1,9 @@
 # RAD API
 
+## tl;dr
+
+  $ docker run dimdm/radapi
+
 ## Prerequisites
 
  * [Node.js](https://nodejs.org/) to run the project

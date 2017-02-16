@@ -12,16 +12,16 @@
     "upgrade": "ncu -u && npm install && nsp check --output summary"
   },
   "dependencies": {
-    "async": "2.1.2",
+    "async": "2.1.4",
     "bower": "1.8.0",
-    "express": "4.14.0",
-    "node-red-ddm": "0.15.x",
-    "node-red-node-swagger-ddm": "0.1.x",
+    "express": "4.14.1",
+    "node-red": "0.16.2",
+    "node-red-node-swagger": "0.1.8",
     "underscore": "1.8.3"
   },
   "devDependencies": {
-    "npm-check-updates": "2.8.6",
-    "nsp": "^2.6.2",
-    "nsp-formatter-checkstyle": "^1.0.1"
+    "npm-check-updates": "2.10.2",
+    "nsp": "2.6.2",
+    "nsp-formatter-checkstyle": "1.0.1"
   }
 }

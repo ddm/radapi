@@ -3,7 +3,7 @@
   "main": "index.js",
   "version": "0.0.0",
   "homepage": "https://github.com/ddm/radapi",
-  "description": "RAD API",
+  "description": "Rapid API development with Node-RED",
   "moduleType": [],
   "authors": [
     "Dimitri del Marmol"

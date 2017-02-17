@@ -103,9 +103,32 @@ services:
       - influxdb
       - prometheus
       - cassandra
-      - elasticsearch      
+      - elasticsearch
+      - activator 
     ports:
       - "1880:1880"
+    depends_on:
+      - logstash
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://localhost:12201"
+
+  activator:
+    image: dimdm/activator
+    container_name: activator
+    links:
+      - arangodb
+      - rethinkdb
+      - redis
+      - influxdb
+      - prometheus
+      - cassandra
+      - elasticsearch
+      - radapi
+    ports:
+      - "8888:8888"
+      - "9000:9000"
     depends_on:
       - logstash
     logging:

@@ -9,4 +9,5 @@ EXPOSE 1880
 
 USER radapi
 WORKDIR /opt/radapi/
-ENTRYPOINT npm start
+ENTRYPOINT ["npm"]
+CMD ["start"]

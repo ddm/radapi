@@ -13,6 +13,8 @@ Vagrant.configure("2") do |config|
 	config.vm.network "forwarded_port", guest: 5601, host: 5601 # Kibana
 	config.vm.network "forwarded_port", guest: 3000, host: 3000 # Grafana
 	config.vm.network "forwarded_port", guest: 1880, host: 1880 # radapi
+	config.vm.network "forwarded_port", guest: 8888, host: 8888 # Activator
+	config.vm.network "forwarded_port", guest: 9000, host: 9000 # Activator
 	config.vm.network "forwarded_port", guest: 4400, host: 4400 # WeaveScope
 
 	config.vm.synced_folder "./", "/vagrant"

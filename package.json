@@ -1,7 +1,7 @@
 {
   "name": "radapi",
   "version": "0.0.0",
-  "description": "RAD API",
+  "description": "Rapid API development with Node-RED",
   "author": "Dimitri del Marmol",
   "license": "MIT",
   "preferGlobal": true,
@@ -13,11 +13,9 @@
     "radapi": "index.js"
   },
   "scripts": {
-    "postinstall": "bower install",
-    "start": "node index",
-    "upgrade": "ncu -ua && npm install && nsp check --output summary",
-    "audit": "nsp check",
-    "lint": "eslint *.js"
+    "preinstall": "ncu -ua",
+    "postinstall": "bower install && nsp check --warn-only --output summary",
+    "start": "node index"
   },
   "dependencies": {
     "async": "2.1.4",

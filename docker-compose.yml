@@ -117,6 +117,7 @@ services:
   activator:
     image: dimdm/activator
     container_name: activator
+    restart: always
     links:
       - arangodb
       - rethinkdb

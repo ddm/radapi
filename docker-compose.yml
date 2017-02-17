@@ -1,0 +1,147 @@
+version: "2"
+
+services:
+  elasticsearch:
+    image: elasticsearch:alpine
+    container_name: elasticsearch
+    ports:
+      - "9200:9200"
+
+  logstash:
+    image: dimdm/logstash
+    container_name: logstash
+    links:
+        - elasticsearch
+    ports:
+        - "12201:12201/udp"
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    depends_on:
+      - logstash
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://localhost:12201"
+
+  influxdb:
+    image: influxdb:alpine
+    container_name: influxdb
+    ports:
+      - "8083:8083"
+      - "8086:8086"
+      - "8096:8096/udp"
+    depends_on:
+      - logstash
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://localhost:12201"
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    depends_on:
+      - logstash
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://localhost:12201"
+
+  cassandra:
+    image: cassandra
+    container_name: cassandra
+    ports:
+      - "9042:9042"
+    depends_on:
+      - logstash
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://localhost:12201"
+
+  arangodb:
+    image: arangodb
+    container_name: arangodb
+    environment:
+      - ARANGO_NO_AUTH=1
+    ports:
+      - "8529:8529"
+    depends_on:
+      - logstash
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://localhost:12201"
+
+  rethinkdb:
+    image: rethinkdb
+    container_name: rethinkdb
+    ports:
+      - "8080:8080"
+      - "28015:28015"
+      - "29015:29015"
+    depends_on:
+      - logstash
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://localhost:12201"
+
+  radapi:
+    image: dimdm/radapi
+    container_name: radapi
+    links:
+      - arangodb
+      - rethinkdb
+      - redis
+      - influxdb
+      - prometheus
+      - cassandra
+      - elasticsearch      
+    ports:
+      - "1880:1880"
+    depends_on:
+      - logstash
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://localhost:12201"
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    links:
+      - influxdb
+    ports:
+      - "3000:3000"
+
+  kibana:
+    image: kibana
+    container_name: kibana
+    links:
+      - elasticsearch
+    ports:
+      - "5601:5601"
+
+  weave:
+    image: weaveworks/scope
+    container_name: weave
+    privileged: true
+    pid: "host"
+    labels:
+      - "works.weave.role=system"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:rw"
+    environment:
+      - CHECKPOINT_DISABLE=true
+    command:
+      - "--probe.docker"
+      - "true"
+    ports:
+      - "4040:4040"

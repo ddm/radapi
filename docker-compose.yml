@@ -125,7 +125,6 @@ services:
       - prometheus
       - cassandra
       - elasticsearch
-      - radapi
     ports:
       - "8888:8888"
       - "9000:9000"

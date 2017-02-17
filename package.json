@@ -4,6 +4,10 @@
   "description": "Rapid API development with Node-RED",
   "author": "Dimitri del Marmol",
   "license": "MIT",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/ddm/radapi.git"
+  },
   "preferGlobal": true,
   "engines": {
     "node": ">=6"

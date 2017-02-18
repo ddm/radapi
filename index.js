@@ -32,7 +32,7 @@ var settings = {
         swagger: "2.0",
         info: {
           title: packageJson.name,
-          description: '[HTTP/1.1](https://tools.ietf.org/html/rfc2616)',
+          description: "[HTTP/1.1](https://tools.ietf.org/html/rfc2616)",
           version: packageJson.version
         }
       }
@@ -41,21 +41,21 @@ var settings = {
     // Anything in this hash is globally available to all functions.
     // It is accessed as context.global.
     // eg:
-    //    functionGlobalContext: { os:require('os') }
+    //    functionGlobalContext: { os:require("os") }
     // can be accessed in a function block as:
     //    context.global.os
     functionGlobalContext: {
-        crypto: require('crypto'),
-        _: require('underscore'),
-        async: require('async'),
-        redis: require('redis'),
-        pg: require('pg'),
-        r: require('rethinkdb'),
-        elasticsearch: require('elasticsearch'),
-        influx: require('influx'),
-        prometheus: require('prom-client'),
-        cassandra: require('cassandra-driver'),
-        arango: require('arangojs')
+        crypto: require("crypto"),
+        _: require("underscore"),
+        async: require("async"),
+        redis: require("redis"),
+        pg: require("pg"),
+        r: require("rethinkdb"),
+        elasticsearch: require("elasticsearch"),
+        influx: require("influx"),
+        prometheus: require("prom-client"),
+        cassandra: require("cassandra-driver"),
+        arango: require("arangojs")
     },
 
     httpNodeMiddleware: (req,res,next) => {

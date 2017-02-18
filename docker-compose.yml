@@ -27,6 +27,20 @@ services:
       options:
         gelf-address: "udp://localhost:12201"
 
+  redis-commander:
+    image: dimdm/redis-commander
+    container_name: redis-commander
+    ports:
+      - "8081:8081"
+    links:
+      - redis
+    depends_on:
+      - logstash
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://localhost:12201"
+
   influxdb:
     image: influxdb:alpine
     container_name: influxdb

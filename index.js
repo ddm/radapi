@@ -48,16 +48,14 @@ var settings = {
         crypto: require("crypto"),
         _: require("underscore"),
         async: require("async"),
-        redis: require("redis"),
-        pg: require("pg"),
-        r: require("rethinkdb"),
-        elasticsearch: require("elasticsearch"),
-        influx: require("influx"),
         prometheus: require("prom-client"),
-        cassandra: require("cassandra-driver"),
         arango: require("arangojs"),
         roach: require("roachjs"),
-        mongo: require("mongodb")
+        r: require("rethinkdb"),
+        pg: require("pg"),
+        redis: require("redis"),
+        influx: require("influx"),
+        elasticsearch: require("elasticsearch")
     },
 
     httpNodeMiddleware: (req,res,next) => {

@@ -133,6 +133,22 @@ services:
       options:
         gelf-address: "udp://localhost:12201"
 
+  cockroachdb:
+    image: cockroachdb/cockroach
+    container_name: cockroachdb
+    ports:
+      - "26257:26257"
+      - "8082:8080"
+    depends_on:
+        - logstash
+    command:
+      - "start"
+      - "--insecure"
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://localhost:12201"
+
   radapi:
     image: dimdm/radapi
     container_name: radapi

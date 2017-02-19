@@ -35,6 +35,7 @@
     "prom-client": "7.1.0",
     "redis": "2.6.5",
     "rethinkdb": "2.3.3",
+    "roachjs": "0.2.20",
     "underscore": "1.8.3"
   },
   "devDependencies": {

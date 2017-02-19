@@ -55,7 +55,8 @@ var settings = {
         influx: require("influx"),
         prometheus: require("prom-client"),
         cassandra: require("cassandra-driver"),
-        arango: require("arangojs")
+        arango: require("arangojs"),
+        roach: require("roachjs")
     },
 
     httpNodeMiddleware: (req,res,next) => {

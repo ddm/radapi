@@ -56,7 +56,8 @@ var settings = {
         prometheus: require("prom-client"),
         cassandra: require("cassandra-driver"),
         arango: require("arangojs"),
-        roach: require("roachjs")
+        roach: require("roachjs"),
+        mongo: require("mongodb")
     },
 
     httpNodeMiddleware: (req,res,next) => {
@@ -92,7 +93,7 @@ var settings = {
     flowFilePretty: true,
 
     // The following property can be used to order the categories in the editor
-    // palette. If a node's category is not in the list, the category will get
+    // palette. If a category is not in the list, the category will get
     // added to the end of the palette.
     // If not set, the following default order is used:
     paletteCategories: ["subflows", "input", "output", "function", "storage",  "advanced", "social", "analysis"],

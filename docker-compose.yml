@@ -11,9 +11,9 @@ services:
     image: dimdm/logstash
     container_name: logstash
     links:
-        - elasticsearch
+      - elasticsearch
     ports:
-        - "12201:12201/udp"
+      - "12201:12201/udp"
 
   redis:
     image: redis:alpine
@@ -127,7 +127,7 @@ services:
     ports:
       - "5050:5050"
     depends_on:
-        - logstash
+      - logstash
     logging:
       driver: gelf
       options:
@@ -140,10 +140,36 @@ services:
       - "26257:26257"
       - "8082:8080"
     depends_on:
-        - logstash
+      - logstash
     command:
       - "start"
       - "--insecure"
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://localhost:12201"
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    depends_on:
+      - logstash
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://localhost:12201"
+
+  mongoclient:
+    image: mongoclient/mongoclient
+    container_name: mongoclient
+    ports:
+      - "3001:3000"
+    links:
+      - mongodb
+    depends_on:
+      - logstash
     logging:
       driver: gelf
       options:
@@ -161,6 +187,8 @@ services:
       - cassandra
       - elasticsearch
       - postgres
+      - cockroachdb
+      - mongodb
       - activator
     ports:
       - "1880:1880"
@@ -184,6 +212,8 @@ services:
       - cassandra
       - elasticsearch
       - postgres
+      - cockroachdb
+      - mongodb
     ports:
       - "8888:8888"
       - "9000:9000"

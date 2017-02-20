@@ -6,6 +6,7 @@ services:
     container_name: elasticsearch
     ports:
       - "9200:9200"
+      - "9300:9300"
 
   logstash:
     image: dimdm/logstash
@@ -45,7 +46,6 @@ services:
     image: influxdb:alpine
     container_name: influxdb
     ports:
-      - "8083:8083"
       - "8086:8086"
       - "8096:8096/udp"
     depends_on:

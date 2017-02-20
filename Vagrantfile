@@ -10,8 +10,8 @@ Vagrant.configure("2") do |config|
 	config.vm.network "forwarded_port", guest: 6379, host: 6379 # Redis
 	config.vm.network "forwarded_port", guest: 8081, host: 8081 # Redis Commander
 	config.vm.network "forwarded_port", guest: 9200, host: 9200 # Elasticsearch
+	config.vm.network "forwarded_port", guest: 9300, host: 9300 # Elasticsearch
 	config.vm.network "forwarded_port", guest: 8086, host: 8086 # InfluxDB
-	config.vm.network "forwarded_port", guest: 8083, host: 8083 # InfluxDB
 	config.vm.network "forwarded_port", guest: 9090, host: 9090 # Prometheus
 	config.vm.network "forwarded_port", guest: 5601, host: 5601 # Kibana
 	config.vm.network "forwarded_port", guest: 3000, host: 3000 # Grafana

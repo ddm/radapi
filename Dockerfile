@@ -5,6 +5,7 @@ RUN apk add --update-cache git &&\
     mkdir -p /opt/radapi/data &&\
     cd /opt/radapi &&\
     npm install && \
+    npm run postinstall && \
     adduser radapi || echo "" &&\
     chown -R radapi:radapi /opt/radapi
 

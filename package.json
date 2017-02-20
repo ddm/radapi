@@ -17,7 +17,6 @@
     "radapi": "index.js"
   },
   "scripts": {
-    "preinstall": "ncu -ua",
     "postinstall": "bower install && nsp check --warn-only --output summary",
     "start": "node index"
   },

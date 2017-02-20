@@ -31,6 +31,7 @@
             height: 1000px;
             padding: 0;
             margin: 0;
+            border: none;
             transform-origin: top left;
             transform: scale(0.2);
         }
@@ -38,49 +39,49 @@
 </head>
 <body>
     <div class="preview-container">
-        <a class="preview-overlay" href="//localhost:1880/edit"></a>
-        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:1880/edit" scrolling="no"></iframe>
+        <a class="preview-overlay" href="//localhost:1880/api.html"></a>
+        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:1880/api.html" scrolling="no" sandbox="allow-same-origin allow-scripts"></iframe>
     </div>
     <div class="preview-container">
-        <a class="preview-overlay" href="//localhost:1880/api.html"></a>
-        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:1880/api.html" scrolling="no"></iframe>
+        <a class="preview-overlay" href="//localhost:1880/edit"></a>
+        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:1880/edit" scrolling="no" sandbox="allow-same-origin allow-scripts"></iframe>
     </div>
     <div class="preview-container">
         <a class="preview-overlay" href='//localhost:4040/#!/state/{"controlPipe":null,"topologyViewMode":"topo","nodeDetails":[],"pinnedMetricType":"Memory","pinnedSearches":[],"searchQuery":"","selectedNodeId":null,"gridSortedBy":null,"gridSortedDesc":null,"topologyId":"containers","topologyOptions":{"processes":{"unconnected":"hide"},"containers":{"system":"application","stopped":"running","pseudo":"show"}},"showingNetworks":true}'></a>
-        <iframe class="preview-thumbnail" width="200" height="200" src='//localhost:4040/#!/state/{"controlPipe":null,"topologyViewMode":"topo","nodeDetails":[],"pinnedMetricType":"Memory","pinnedSearches":[],"searchQuery":"","selectedNodeId":null,"gridSortedBy":null,"gridSortedDesc":null,"topologyId":"containers","topologyOptions":{"processes":{"unconnected":"hide"},"containers":{"system":"application","stopped":"running","pseudo":"show"}},"showingNetworks":true}' scrolling="no"></iframe>
+        <iframe class="preview-thumbnail" width="200" height="200" src='//localhost:4040/#!/state/{"controlPipe":null,"topologyViewMode":"topo","nodeDetails":[],"pinnedMetricType":"Memory","pinnedSearches":[],"searchQuery":"","selectedNodeId":null,"gridSortedBy":null,"gridSortedDesc":null,"topologyId":"containers","topologyOptions":{"processes":{"unconnected":"hide"},"containers":{"system":"application","stopped":"running","pseudo":"show"}},"showingNetworks":true}' scrolling="no" sandbox="allow-same-origin allow-scripts"></iframe>
     </div>
     <div class="preview-container">
         <a class="preview-overlay" href="//localhost:5601/app/kibana#/discover?_g=()"></a>
-        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:5601/app/kibana#/discover?_g=()" scrolling="no"></iframe>
+        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:5601/app/kibana#/discover?_g=()" scrolling="no" sandbox="allow-same-origin allow-scripts"></iframe>
     </div>
     <div class="preview-container">
         <a class="preview-overlay" href="//localhost:3000"></a>
-        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:3000" scrolling="no"></iframe>
+        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:3000" scrolling="no" sandbox="allow-same-origin allow-scripts"></iframe>
     </div>
         <div class="preview-container">
         <a class="preview-overlay" href="//localhost:9090/graph?g0.range_input=1h&g0.expr=process_virtual_memory_bytes&g0.tab=0"></a>
-        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:9090/graph?g0.range_input=1h&g0.expr=process_virtual_memory_bytes&g0.tab=0" scrolling="no"></iframe>
+        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:9090/graph?g0.range_input=1h&g0.expr=process_virtual_memory_bytes&g0.tab=0" scrolling="no" sandbox="allow-same-origin allow-scripts"></iframe>
     </div>
     </div>
         <div class="preview-container">
         <a class="preview-overlay" href="//localhost:8529/_db/_system/_admin/aardvark/index.html#dashboard"></a>
-        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:8529/_db/_system/_admin/aardvark/index.html#dashboard" scrolling="no"></iframe>
+        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:8529/_db/_system/_admin/aardvark/index.html#dashboard" scrolling="no" sandbox="allow-same-origin allow-scripts"></iframe>
     </div>
     <div class="preview-container">
         <a class="preview-overlay" href="//localhost:8082/#/cluster/all/overview"></a>
-        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:8082/#/cluster/all/overview" scrolling="no"></iframe>
+        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:8082/#/cluster/all/overview" scrolling="no" sandbox="allow-same-origin allow-scripts"></iframe>
     </div>
     <div class="preview-container">
         <a class="preview-overlay" href="//localhost:8080"></a>
-        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:8080" scrolling="no"></iframe>
+        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:8080" scrolling="no" sandbox="allow-same-origin allow-scripts"></iframe>
+    </div>
+        <div class="preview-container">
+        <a class="preview-overlay" href="//localhost:8081"></a>
+        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:8081" scrolling="no"></iframe>
     </div>
     <div class="preview-container">
         <a class="preview-overlay" href="//localhost:5050/browser/"></a>
-        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:5050/browser/" scrolling="no"></iframe>
-    </div>
-    <div class="preview-container">
-        <a class="preview-overlay" href="//localhost:8081"></a>
-        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:8081" scrolling="no"></iframe>
+        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:5050/browser/" scrolling="no" sandbox=""></iframe>
     </div>
 </body>
 </html>

@@ -17,7 +17,7 @@
     "radapi": "index.js"
   },
   "scripts": {
-    "postinstall": "bower install --allow-root; nsp check --warn-only --output summary; ncu",
+    "postinstall": "bower install; nsp check --warn-only --output summary; ncu",
     "start": "node index"
   },
   "dependencies": {

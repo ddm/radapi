@@ -19,5 +19,6 @@
     "tests"
   ],
   "dependencies": {
+    "polymer": "1.8.3"
   }
 }

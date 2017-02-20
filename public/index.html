@@ -1,6 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <meta name="viewport" content="width=device-width"/>
     <title>Preview</title>
     <style type="text/css">
         .preview-container {
@@ -36,52 +40,95 @@
             transform: scale(0.2);
         }
     </style>
+    <script src="lib/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="lib/polymer/polymer.html">
 </head>
 <body>
-    <div class="preview-container">
-        <a class="preview-overlay" href="//localhost:1880/api.html"></a>
-        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:1880/api.html" scrolling="no" sandbox="allow-same-origin allow-scripts"></iframe>
-    </div>
-    <div class="preview-container">
-        <a class="preview-overlay" href="//localhost:1880/edit"></a>
-        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:1880/edit" scrolling="no" sandbox="allow-same-origin allow-scripts"></iframe>
-    </div>
-    <div class="preview-container">
-        <a class="preview-overlay" href='//localhost:4040/#!/state/{"controlPipe":null,"topologyViewMode":"topo","nodeDetails":[],"pinnedMetricType":"Memory","pinnedSearches":[],"searchQuery":"","selectedNodeId":null,"gridSortedBy":null,"gridSortedDesc":null,"topologyId":"containers","topologyOptions":{"processes":{"unconnected":"hide"},"containers":{"system":"application","stopped":"running","pseudo":"show"}},"showingNetworks":true}'></a>
-        <iframe class="preview-thumbnail" width="200" height="200" src='//localhost:4040/#!/state/{"controlPipe":null,"topologyViewMode":"topo","nodeDetails":[],"pinnedMetricType":"Memory","pinnedSearches":[],"searchQuery":"","selectedNodeId":null,"gridSortedBy":null,"gridSortedDesc":null,"topologyId":"containers","topologyOptions":{"processes":{"unconnected":"hide"},"containers":{"system":"application","stopped":"running","pseudo":"show"}},"showingNetworks":true}' scrolling="no" sandbox="allow-same-origin allow-scripts"></iframe>
-    </div>
-    <div class="preview-container">
-        <a class="preview-overlay" href="//localhost:5601/app/kibana#/discover?_g=()"></a>
-        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:5601/app/kibana#/discover?_g=()" scrolling="no" sandbox="allow-same-origin allow-scripts"></iframe>
-    </div>
-    <div class="preview-container">
-        <a class="preview-overlay" href="//localhost:3000"></a>
-        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:3000" scrolling="no" sandbox="allow-same-origin allow-scripts"></iframe>
-    </div>
-        <div class="preview-container">
-        <a class="preview-overlay" href="//localhost:9090/graph?g0.range_input=1h&g0.expr=process_virtual_memory_bytes&g0.tab=0"></a>
-        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:9090/graph?g0.range_input=1h&g0.expr=process_virtual_memory_bytes&g0.tab=0" scrolling="no" sandbox="allow-same-origin allow-scripts"></iframe>
-    </div>
-    </div>
-        <div class="preview-container">
-        <a class="preview-overlay" href="//localhost:8529/_db/_system/_admin/aardvark/index.html#dashboard"></a>
-        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:8529/_db/_system/_admin/aardvark/index.html#dashboard" scrolling="no" sandbox="allow-same-origin allow-scripts"></iframe>
-    </div>
-    <div class="preview-container">
-        <a class="preview-overlay" href="//localhost:8082/#/cluster/all/overview"></a>
-        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:8082/#/cluster/all/overview" scrolling="no" sandbox="allow-same-origin allow-scripts"></iframe>
-    </div>
-    <div class="preview-container">
-        <a class="preview-overlay" href="//localhost:8080"></a>
-        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:8080" scrolling="no" sandbox="allow-same-origin allow-scripts"></iframe>
-    </div>
-        <div class="preview-container">
-        <a class="preview-overlay" href="//localhost:8081"></a>
-        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:8081" scrolling="no"></iframe>
-    </div>
-    <div class="preview-container">
-        <a class="preview-overlay" href="//localhost:5050/browser/"></a>
-        <iframe class="preview-thumbnail" width="200" height="200" src="//localhost:5050/browser/" scrolling="no" sandbox=""></iframe>
-    </div>
+    <dom-module id="preview-items">
+        <template>
+            <template
+                is="dom-repeat"
+                items="[[items]]"
+                as="item">
+                <div class="preview-container">
+                    <a class="preview-overlay" href="[[item.url]]"></a>
+                    <iframe class="preview-thumbnail" width="200" height="200" src="[[item.url]]" scrolling="no" sandbox="[[item.sandbox]]"></iframe>
+                </div>
+            </template>
+        </template>
+    </dom-module>
+    <script>
+        /*jshint esversion: 6 */
+        Polymer({
+            is: "preview-items",
+            properties: {
+                items: {
+                    type: Array,
+                    readonly: true,
+                    value: [
+                        {
+                            description: "Swagger UI",
+                            url: `//${window.location.hostname}:1880/api.html`,
+                            sandbox: "allow-same-origin allow-scripts"
+                        },
+                        {
+                            description: "Node-RED",
+                            url: `//${window.location.hostname}:1880/edit`,
+                            sandbox: "allow-same-origin allow-scripts"
+                        },
+                        {
+                            description: "Weave scope",
+                            url: `//${window.location.hostname}:4040/#!/state/{"controlPipe":null,"topologyViewMode":"topo","nodeDetails":[],"pinnedMetricType":"Memory","pinnedSearches":[],"searchQuery":"","selectedNodeId":null,"gridSortedBy":null,"gridSortedDesc":null,"topologyId":"containers","topologyOptions":{"processes":{"unconnected":"hide"},"containers":{"system":"application","stopped":"running","pseudo":"show"}},"showingNetworks":true}`,
+                            sandbox: "allow-same-origin allow-scripts"
+                        },
+                        {
+                            description: "Kibana",
+                            url: `//${window.location.hostname}:5601/app/kibana#/discover?_g=()`,
+                            sandbox: "allow-same-origin allow-scripts"
+                        },
+                        {
+                            description: "Grafana",
+                            url: `//${window.location.hostname}:3000`,
+                            sandbox: "allow-same-origin allow-scripts"
+                        },
+                        {
+                            description: "Prometheus",
+                            url: `//${window.location.hostname}:9090/graph?g0.range_input=1h&g0.expr=process_virtual_memory_bytes&g0.tab=0`,
+                            sandbox: "allow-same-origin allow-scripts"
+                        },
+                        {
+                            description: "ArangoDB",
+                            url: `//${window.location.hostname}:8529/_db/_system/_admin/aardvark/index.html#dashboard`,
+                            sandbox: "allow-same-origin allow-scripts"
+                        },
+                        {
+                            description: "CockroachDB",
+                            url: `//${window.location.hostname}:8082/#/cluster/all/overview`,
+                            sandbox: "allow-same-origin allow-scripts"
+                        },
+                        {
+                            description: "RethinkDB",
+                            url: `//${window.location.hostname}:8080`,
+                            sandbox: "allow-same-origin allow-scripts"
+                        },
+                        {
+                            description: "Redis Commander",
+                            url: `//${window.location.hostname}:8081`,
+                            sandbox: "allow-same-origin allow-scripts"
+                        },
+                        {
+                            description: "pdAdmin4",
+                            url: `//${window.location.hostname}:5050/browser/`,
+                            sandbox: ""
+                        }
+                    ]
+                }
+            },
+            ready: () => { console.log("Ready!") }
+        });
+    </script>
+    <template is="dom-bind">
+        <preview-items></preview-items>
+    </template>
 </body>
 </html>

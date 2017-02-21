@@ -112,11 +112,6 @@
                             sandbox: "allow-same-origin allow-scripts"
                         },
                         {
-                            description: "Jupyter Notebooks",
-                            url: `//${window.location.hostname}:8888`,
-                            sandbox: "allow-same-origin allow-scripts"
-                        },
-                        {
                             description: "Redis Commander",
                             url: `//${window.location.hostname}:8081`,
                             sandbox: "allow-same-origin allow-scripts"
@@ -125,6 +120,11 @@
                             description: "pdAdmin4",
                             url: `//${window.location.hostname}:5050/browser/`,
                             sandbox: ""
+                        },
+                        {
+                            description: "Jupyter Notebooks",
+                            url: `//${window.location.hostname}:8888/tree?`,
+                            sandbox: "allow-same-origin allow-scripts"
                         }
                     ]
                 }

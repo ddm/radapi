@@ -1,8 +1,8 @@
 FROM node:alpine
 
-ADD *.js* /opt/radapi/
-ADD .bowerrc /opt/radapi/
-ADD public/*.html /opt/radapi/public/
+COPY *.js* /opt/radapi/
+COPY .bowerrc /opt/radapi/
+COPY public/*.html /opt/radapi/public/
 
 RUN apk add --update-cache git &&\
     mkdir -p /opt/radapi/data &&\

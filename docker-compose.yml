@@ -158,6 +158,24 @@ services:
       options:
         gelf-address: "udp://localhost:12201"
 
+  notebook:
+    image: jupyter/scipy-notebook
+    container_name: notebook
+    links:
+      - prometheus
+      - arangodb
+      - cockroachdb
+      - rethinkdb
+      - postgres
+      - redis
+      - influxdb
+      - elasticsearch
+    command:
+      - "start-notebook.sh"
+      - "--NotebookApp.token=''"
+    ports:
+      - "8888:8888"
+
   grafana:
     image: grafana/grafana
     container_name: grafana

@@ -1,7 +1,10 @@
 FROM node:alpine
 
+ADD *.js* /opt/radapi/
+ADD .bowerrc /opt/radapi/
+ADD public/*.html /opt/radapi/public/
+
 RUN apk add --update-cache git &&\
-    git clone --depth 1 https://github.com/ddm/radapi /opt/radapi &&\
     mkdir -p /opt/radapi/data &&\
     cd /opt/radapi &&\
     npm config set unsafe-perm true &&\
@@ -10,7 +13,6 @@ RUN apk add --update-cache git &&\
     chown -R radapi:radapi /opt/radapi
 
 EXPOSE 1880
-
 USER radapi
 WORKDIR /opt/radapi/
 ENTRYPOINT ["npm"]

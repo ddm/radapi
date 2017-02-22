@@ -72,8 +72,13 @@
                     readonly: true,
                     value: [
                         {
-                            description: "Swagger UI",
-                            url: `//${window.location.hostname}:1880/api.html`,
+                            description: "Weave scope",
+                            url: `//${window.location.hostname}:4040/#!/state/{"controlPipe":null,"topologyViewMode":"topo","nodeDetails":[],"pinnedMetricType":"Memory","pinnedSearches":[],"searchQuery":"","selectedNodeId":null,"gridSortedBy":null,"gridSortedDesc":null,"topologyId":"containers","topologyOptions":{"processes":{"unconnected":"hide"},"containers":{"system":"application","stopped":"running","pseudo":"show"}},"showingNetworks":true}`,
+                            sandbox: "allow-same-origin allow-scripts"
+                        },
+                        {
+                            description: "Kibana",
+                            url: `//${window.location.hostname}:5601/app/kibana#/discover?_g=(refreshInterval:('$$hashKey':'object:569',display:'10%20seconds',pause:!f,section:1,value:10000),time:(from:now-15m,mode:quick,to:now))&_a=(columns:!(container_name,message),index:'logstash-*',interval:auto,query:(query_string:(analyze_wildcard:!t,query:'*')),sort:!('@timestamp',desc))`,
                             sandbox: "allow-same-origin allow-scripts"
                         },
                         {
@@ -82,13 +87,13 @@
                             sandbox: "allow-same-origin allow-scripts"
                         },
                         {
-                            description: "Weave scope",
-                            url: `//${window.location.hostname}:4040/#!/state/{"controlPipe":null,"topologyViewMode":"topo","nodeDetails":[],"pinnedMetricType":"Memory","pinnedSearches":[],"searchQuery":"","selectedNodeId":null,"gridSortedBy":null,"gridSortedDesc":null,"topologyId":"containers","topologyOptions":{"processes":{"unconnected":"hide"},"containers":{"system":"application","stopped":"running","pseudo":"show"}},"showingNetworks":true}`,
+                            description: "Jupyter Notebooks",
+                            url: `//${window.location.hostname}:8888/tree?`,
                             sandbox: "allow-same-origin allow-scripts"
                         },
                         {
-                            description: "Kibana",
-                            url: `//${window.location.hostname}:5601/app/kibana#/discover?_g=(refreshInterval:('$$hashKey':'object:569',display:'10%20seconds',pause:!f,section:1,value:10000),time:(from:now-15m,mode:quick,to:now))&_a=(columns:!(container_name,message),index:'logstash-*',interval:auto,query:(query_string:(analyze_wildcard:!t,query:'*')),sort:!('@timestamp',desc))`,
+                            description: "Swagger UI",
+                            url: `//${window.location.hostname}:1880/api.html`,
                             sandbox: "allow-same-origin allow-scripts"
                         },
                         {
@@ -125,11 +130,6 @@
                             description: "pdAdmin4",
                             url: `//${window.location.hostname}:5050/browser/`,
                             sandbox: ""
-                        },
-                        {
-                            description: "Jupyter Notebooks",
-                            url: `//${window.location.hostname}:8888/tree?`,
-                            sandbox: "allow-same-origin allow-scripts"
                         }
                     ]
                 }

@@ -170,6 +170,7 @@ services:
       - redis
       - influxdb
       - elasticsearch
+      - radapi
     command:
       - "start-notebook.sh"
       - "--NotebookApp.token=''"

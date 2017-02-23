@@ -159,7 +159,7 @@ services:
         gelf-address: "udp://localhost:12201"
 
   notebook:
-    image: jupyter/scipy-notebook
+    image: dimdm/notebook
     container_name: notebook
     links:
       - prometheus
@@ -171,11 +171,26 @@ services:
       - influxdb
       - elasticsearch
       - radapi
-    command:
-      - "start-notebook.sh"
-      - "--NotebookApp.token=''"
     ports:
       - "8888:8888"
+    depends_on:
+      - logstash
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://localhost:12201"
+
+  etherpad:
+    image: dimdm/etherpad
+    container_name: etherpad
+    ports:
+      - "9001:9001"
+    depends_on:
+      - logstash
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://localhost:12201"
 
   grafana:
     image: grafana/grafana

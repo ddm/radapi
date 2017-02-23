@@ -31,5 +31,5 @@ Vagrant.configure("2") do |config|
 
 	config.vm.provision :docker
 	config.vm.provision "shell", inline: "sudo sysctl -w vm.max_map_count=262144" # ES
-	config.vm.provision :docker_compose, compose_version: "1.11.1", yml: "/vagrant/docker-compose.yml", run: "always"
+	config.vm.provision :docker_compose, compose_version: "1.11.2", yml: "/vagrant/docker-compose.yml", run: "always"
 end

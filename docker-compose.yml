@@ -1,4 +1,4 @@
-version: "2"
+version: "3"
 
 services:
   elasticsearch:
@@ -149,10 +149,28 @@ services:
       - redis
       - influxdb
       - elasticsearch
+    volumes:
+      - code_volume:/opt/radapi
     ports:
       - "1880:1880"
     depends_on:
       - logstash
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://localhost:12201"
+
+  c9:
+    image: dimdm/c9
+    container_name: c9
+    volumes:
+      - code_volume:/opt/radapi
+    ports:
+      - "8181:8181"
+      - "8282:8282"
+    depends_on:
+      - logstash
+      - radapi
     logging:
       driver: gelf
       options:
@@ -224,3 +242,6 @@ services:
       - "true"
     ports:
       - "4040:4040"
+
+volumes:
+  code_volume:

@@ -150,7 +150,7 @@ services:
       - influxdb
       - elasticsearch
     volumes:
-      - code_volume:/opt/radapi
+      - ./public/:/opt/radapi/public
     ports:
       - "1880:1880"
     depends_on:
@@ -164,7 +164,7 @@ services:
     image: dimdm/c9:alpine
     container_name: c9
     volumes:
-      - code_volume:/opt/radapi
+      - ./:/workspace/radapi
     environment:
       - IP=0.0.0.0
       - PORT=8282
@@ -246,6 +246,3 @@ services:
       - "true"
     ports:
       - "4040:4040"
-
-volumes:
-  code_volume:

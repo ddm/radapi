@@ -161,13 +161,17 @@ services:
         gelf-address: "udp://localhost:12201"
 
   c9:
-    image: dimdm/c9
+    image: dimdm/c9:alpine
     container_name: c9
     volumes:
       - code_volume:/opt/radapi
+    environment:
+      - IP=0.0.0.0
+      - PORT=8282
     ports:
       - "8181:8181"
       - "8282:8282"
+      - "8383:8383"
     depends_on:
       - logstash
       - radapi

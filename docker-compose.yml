@@ -163,6 +163,7 @@ services:
   c9:
     image: dimdm/c9:alpine
     container_name: c9
+    restart: always
     volumes:
       - ./:/workspace/radapi
     environment:

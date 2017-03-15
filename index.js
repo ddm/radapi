@@ -17,8 +17,8 @@ var settings = {
     userDir: path.resolve(__dirname, "data"),
     nodesDir: path.resolve(__dirname, "data/nodes"),
 
-    uiPort: 1880,
-    uiHost: "0.0.0.0",
+    uiPort: process.env.PORT || 1880,
+    uiHost: process.env.IP || "0.0.0.0",
 
     httpStatic: "public",
     httpAdminRoot: "/edit/",

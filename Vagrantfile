@@ -19,6 +19,9 @@ Vagrant.configure("2") do |config|
 	config.vm.network "forwarded_port", guest: 4400, host: 4400 # WeaveScope
 	config.vm.network "forwarded_port", guest: 8888, host: 8888 # Notebook
 	config.vm.network "forwarded_port", guest: 9001, host: 9001 # Etherpad
+	config.vm.network "forwarded_port", guest: 8181, host: 8181 # c9
+	config.vm.network "forwarded_port", guest: 8282, host: 8282 # c9
+	config.vm.network "forwarded_port", guest: 8383, host: 8383 # c9
 
 	config.vm.synced_folder "./", "/vagrant"
 

@@ -188,7 +188,7 @@ services:
         gelf-address: udp://localhost:12201
 
   grafana:
-    image: dimdm/grafana
+    image: dimdm/grafana:alpine
     container_name: grafana
     links:
       - influxdb

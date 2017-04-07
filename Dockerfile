@@ -1,8 +1,7 @@
 FROM dimdm/node
 
-COPY *.js* /opt/radapi/
-COPY .bowerrc /opt/radapi/
-COPY public/*.html /opt/radapi/public/
+COPY *.js* .bowerrc /opt/radapi/
+COPY public/* /opt/radapi/public/
 
 RUN apk --no-cache add --virtual build-dependencies \
       git &&\

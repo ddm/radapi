@@ -194,7 +194,7 @@ services:
       - 127.0.0.1:3000:3000
 
   weave:
-    image: weaveworks/scope
+    image: weaveworks/scope:latest_release
     container_name: weave
     privileged: true
     pid: "host"

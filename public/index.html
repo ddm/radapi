@@ -83,7 +83,7 @@
                         },
                         {
                             description: "Node-RED",
-                            url: `//${window.location.hostname}:1880/edit`,
+                            url: `//${window.location.hostname}${window.location.port ? ':' : ''}${window.location.port}/edit`,
                             sandbox: "allow-same-origin allow-scripts"
                         },
                         {

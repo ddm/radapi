@@ -8,12 +8,22 @@ services:
       - 9200/tcp
 
   logstash:
-    image: dimdm/logstash
+    image: dimdm/logstash:alpine
     container_name: logstash
+    labels:
+      - "works.weave.role=system"
     links:
       - elasticsearch
     ports:
       - 127.0.0.1:12201:12201/udp
+
+  kibana:
+    image: dimdm/kibana:alpine
+    container_name: kibana
+    links:
+      - elasticsearch
+    ports:
+      - 127.0.0.1:5601:5601
 
   redis:
     image: redis:alpine
@@ -94,6 +104,10 @@ services:
   postgres:
     image: postgres:alpine
     container_name: postgres
+    environment:
+      - POSTGRES_DB=radapi
+      - POSTGRES_USER=radapi
+      - POSTGRES_PASSWORD=radapi
     expose:
       - 5432/tcp
     depends_on:
@@ -118,7 +132,7 @@ services:
         gelf-address: udp://localhost:12201
 
   radapi:
-    image: dimdm/radapi
+    image: quay.io/dimdm/radapi:master
     container_name: radapi
     links:
       - prometheus
@@ -175,16 +189,9 @@ services:
     container_name: grafana
     links:
       - influxdb
-    ports:
-      - 127.0.0.1:3000:3000
-
-  kibana:
-    image: dimdm/kibana:alpine
-    container_name: kibana
-    links:
       - elasticsearch
     ports:
-      - 127.0.0.1:5601:5601
+      - 127.0.0.1:3000:3000
 
   weave:
     image: weaveworks/scope

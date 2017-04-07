@@ -14,6 +14,8 @@ RUN apk --no-cache add --virtual build-dependencies \
     mkdir -p ${RADAPI_PATH}/data &&\
     cd ${RADAPI_PATH} &&\
     npm install &&\
+    npm install -g bower &&\
+    bower install &&\
     apk del --purge build-dependencies &&\
     rm -rf /var/cache/apk/* &&\
     rm -rf /root/* &&\

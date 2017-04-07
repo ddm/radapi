@@ -2,7 +2,6 @@ Vagrant.configure("2") do |config|
 	config.vm.box = "debian/jessie64"
 	config.vm.box_check_update = true
 
-	config.vm.network "forwarded_port", guest: 8082, host: 8082 # CockroachDB
 	config.vm.network "forwarded_port", guest: 8080, host: 8080 # RethinkDB
 	config.vm.network "forwarded_port", guest: 8529, host: 8529 # ArangoDB
 	config.vm.network "forwarded_port", guest: 5432, host: 5432 # PostgreSQL

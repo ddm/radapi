@@ -13,7 +13,6 @@ RUN apk --no-cache add --virtual build-dependencies \
       python &&\
     mkdir -p ${RADAPI_PATH}/data &&\
     cd ${RADAPI_PATH} &&\
-    npm config set unsafe-perm true &&\
     npm install &&\
     apk del --purge build-dependencies &&\
     rm -rf /var/cache/apk/* &&\

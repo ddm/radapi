@@ -1,12 +1,11 @@
-version: "2"
+version: "3"
 
 services:
   elasticsearch:
-    image: elasticsearch:alpine
+    image: dimdm/elasticsearch:alpine
     container_name: elasticsearch
-    ports:
-      - "9200:9200"
-      - "9300:9300"
+    expose:
+      - 9200/tcp
 
   logstash:
     image: dimdm/logstash
@@ -14,25 +13,25 @@ services:
     links:
       - elasticsearch
     ports:
-      - "12201:12201/udp"
+      - 127.0.0.1:12201:12201/udp
 
   redis:
     image: redis:alpine
     container_name: redis
-    ports:
-      - "6379:6379"
+    expose:
+      - 6379/tcp
     depends_on:
       - logstash
     logging:
       driver: gelf
       options:
-        gelf-address: "udp://localhost:12201"
+        gelf-address: udp://localhost:12201
 
   redis-commander:
     image: dimdm/redis-commander
     container_name: redis-commander
     ports:
-      - "8081:8081"
+      - 127.0.0.1:8081:8081
     links:
       - redis
     depends_on:
@@ -40,32 +39,31 @@ services:
     logging:
       driver: gelf
       options:
-        gelf-address: "udp://localhost:12201"
+        gelf-address: udp://localhost:12201
 
   influxdb:
     image: influxdb:alpine
     container_name: influxdb
-    ports:
-      - "8086:8086"
-      - "8096:8096/udp"
+    expose:
+      - 8086/tcp
     depends_on:
       - logstash
     logging:
       driver: gelf
       options:
-        gelf-address: "udp://localhost:12201"
+        gelf-address: udp://localhost:12201
 
   prometheus:
     image: prom/prometheus
     container_name: prometheus
-    ports:
-      - "9090:9090"
+    expose:
+      - 9090/tcp
     depends_on:
       - logstash
     logging:
       driver: gelf
       options:
-        gelf-address: "udp://localhost:12201"
+        gelf-address: udp://localhost:12201
 
   arangodb:
     image: arangodb
@@ -73,39 +71,37 @@ services:
     environment:
       - ARANGO_NO_AUTH=1
     ports:
-      - "8529:8529"
+      - 127.0.0.1:8529:8529
     depends_on:
       - logstash
     logging:
       driver: gelf
       options:
-        gelf-address: "udp://localhost:12201"
+        gelf-address: udp://localhost:12201
 
   rethinkdb:
     image: rethinkdb
     container_name: rethinkdb
     ports:
-      - "8080:8080"
-      - "28015:28015"
-      - "29015:29015"
+      - 127.0.0.1:8080:8080
     depends_on:
       - logstash
     logging:
       driver: gelf
       options:
-        gelf-address: "udp://localhost:12201"
+        gelf-address: udp://localhost:12201
 
   postgres:
     image: postgres:alpine
     container_name: postgres
-    ports:
-      - "5432:5432"
+    expose:
+      - 5432/tcp
     depends_on:
       - logstash
     logging:
       driver: gelf
       options:
-        gelf-address: "udp://localhost:12201"
+        gelf-address: udp://localhost:12201
 
   pgadmin:
     image: thajeztah/pgadmin4
@@ -113,20 +109,19 @@ services:
     links:
       - postgres
     ports:
-      - "5050:5050"
+      - 127.0.0.1:5050:5050
     depends_on:
       - logstash
     logging:
       driver: gelf
       options:
-        gelf-address: "udp://localhost:12201"
+        gelf-address: udp://localhost:12201
 
   cockroachdb:
     image: cockroachdb/cockroach
     container_name: cockroachdb
     ports:
-      - "26257:26257"
-      - "8082:8080"
+      - 127.0.0.1:8082:8080
     depends_on:
       - logstash
     command:
@@ -135,7 +130,7 @@ services:
     logging:
       driver: gelf
       options:
-        gelf-address: "udp://localhost:12201"
+        gelf-address: udp://localhost:12201
 
   radapi:
     image: dimdm/radapi
@@ -150,13 +145,13 @@ services:
       - influxdb
       - elasticsearch
     ports:
-      - "1880:1880"
+      - 127.0.0.1:1880:1880
     depends_on:
       - logstash
     logging:
       driver: gelf
       options:
-        gelf-address: "udp://localhost:12201"
+        gelf-address: udp://localhost:12201
 
   notebook:
     image: dimdm/notebook
@@ -172,41 +167,41 @@ services:
       - elasticsearch
       - radapi
     ports:
-      - "8888:8888"
+      - 127.0.0.1:8888:8888
     depends_on:
       - logstash
     logging:
       driver: gelf
       options:
-        gelf-address: "udp://localhost:12201"
+        gelf-address: udp://localhost:12201
 
   etherpad:
     image: dimdm/etherpad
     container_name: etherpad
     ports:
-      - "9001:9001"
+      - 127.0.0.1:9001:9001
     depends_on:
       - logstash
     logging:
       driver: gelf
       options:
-        gelf-address: "udp://localhost:12201"
+        gelf-address: udp://localhost:12201
 
   grafana:
-    image: grafana/grafana
+    image: dimdm/grafana
     container_name: grafana
     links:
       - influxdb
     ports:
-      - "3000:3000"
+      - 127.0.0.1:3000:3000
 
   kibana:
-    image: kibana
+    image: dimdm/kibana
     container_name: kibana
     links:
       - elasticsearch
     ports:
-      - "5601:5601"
+      - 127.0.0.1:5601:5601
 
   weave:
     image: weaveworks/scope
@@ -223,4 +218,4 @@ services:
       - "--probe.docker"
       - "true"
     ports:
-      - "4040:4040"
+      - 127.0.0.1:4040:4040

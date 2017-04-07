@@ -50,7 +50,6 @@ var settings = {
         async: require("async"),
         prometheus: require("prom-client"),
         arango: require("arangojs"),
-        roach: require("roachjs"),
         r: require("rethinkdb"),
         pg: require("pg"),
         redis: require("redis"),

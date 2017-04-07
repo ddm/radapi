@@ -17,7 +17,7 @@
     "radapi": "index.js"
   },
   "scripts": {
-    "postinstall": "bower install; nsp check --warn-only --output summary; ncu",
+    "postinstall": "bower install",
     "start": "node index"
   },
   "dependencies": {
@@ -33,12 +33,6 @@
     "prom-client": "8.0.0",
     "redis": "2.7.1",
     "rethinkdb": "2.3.3",
-    "roachjs": "0.2.20",
     "underscore": "1.8.3"
-  },
-  "devDependencies": {
-    "npm-check-updates": "2.10.5",
-    "nsp": "2.6.3",
-    "nsp-formatter-checkstyle": "1.0.1"
   }
 }

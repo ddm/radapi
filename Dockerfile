@@ -16,7 +16,7 @@ RUN apk --no-cache add --virtual build-dependencies \
     npm install &&\
     npm install -g bower &&\
     bower install &&\
-    npm uninstall -g bower &&\
+    rm -rf /usr/lib/node_modules &&\
     apk del --purge build-dependencies &&\
     rm -rf /var/cache/apk/* &&\
     rm -rf /root/* &&\

@@ -2,13 +2,13 @@ version: "3"
 
 services:
   elasticsearch:
-    image: dimdm/elasticsearch:alpine
+    image: dimdm/elasticsearch:5.3.0
     container_name: elasticsearch
     expose:
       - 9200/tcp
 
   logstash:
-    image: dimdm/logstash:alpine
+    image: dimdm/logstash:5.3.0
     container_name: logstash
     labels:
       - "works.weave.role=system"
@@ -18,7 +18,7 @@ services:
       - 127.0.0.1:12201:12201/udp
 
   kibana:
-    image: dimdm/kibana:alpine
+    image: dimdm/kibana:5.3.0
     container_name: kibana
     links:
       - elasticsearch
@@ -185,7 +185,7 @@ services:
         gelf-address: udp://localhost:12201
 
   grafana:
-    image: dimdm/grafana:alpine
+    image: dimdm/grafana:4.2.0
     container_name: grafana
     links:
       - influxdb

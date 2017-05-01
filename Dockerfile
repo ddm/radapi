@@ -29,4 +29,3 @@ EXPOSE 1880
 USER radapi
 WORKDIR ${RADAPI_PATH}
 CMD npm start
-

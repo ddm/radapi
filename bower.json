@@ -19,6 +19,6 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "1.9.1"
+    "polymer": "1.9.3"
   }
 }

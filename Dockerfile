@@ -1,4 +1,4 @@
-FROM dimdm/node:6.10.3
+FROM dimdm/node:6.11.1
 
 ENV NODE_ENV=production
 ARG NODE_ENV=production

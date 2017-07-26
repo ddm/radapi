@@ -21,16 +21,16 @@
     "start": "node index"
   },
   "dependencies": {
-    "arangojs": "5.6.1",
-    "async": "2.4.0",
+    "arangojs": "5.7.0",
+    "async": "2.5.0",
     "bower": "1.8.0",
-    "elasticsearch": "13.0.1",
-    "express": "4.15.2",
+    "elasticsearch": "13.2.0",
+    "express": "4.15.3",
     "influx": "5.0.7",
-    "node-red": "0.16.2",
+    "node-red": "0.17.5",
     "node-red-node-swagger": "0.1.8",
-    "pg": "6.1.5",
-    "prom-client": "9.0.0",
+    "pg": "7.0.2",
+    "prom-client": "10.0.2",
     "redis": "2.7.1",
     "rethinkdb": "2.3.3",
     "underscore": "1.8.3"

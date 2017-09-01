@@ -2,23 +2,21 @@ version: "3"
 
 services:
   elasticsearch:
-    image: dimdm/elasticsearch:5.3.0
+    image: dimdm/elasticsearch:5.4.2
     container_name: elasticsearch
     expose:
       - 9200/tcp
 
   logstash:
-    image: dimdm/logstash:5.3.0
+    image: dimdm/logstash:5.4.2
     container_name: logstash
-    labels:
-      - "works.weave.role=system"
     links:
       - elasticsearch
     ports:
       - 127.0.0.1:12201:12201/udp
 
   kibana:
-    image: dimdm/kibana:5.3.0
+    image: dimdm/kibana:5.4.0
     container_name: kibana
     links:
       - elasticsearch

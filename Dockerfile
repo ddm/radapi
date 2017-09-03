@@ -1,4 +1,4 @@
-FROM dimdm/node:8.4.0
+FROM dimdm/node:8.4.0-arm32v6
 
 ENV NODE_ENV=production
 ARG NODE_ENV=production

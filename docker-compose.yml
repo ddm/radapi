@@ -1,211 +1,25 @@
 version: "3"
 
 services:
-  elasticsearch:
-    image: dimdm/elasticsearch:5.4.2
-    container_name: elasticsearch
+  simple-docker-proxy:
+    image: dimdm/simple-docker-proxy:arm32v6
+    container_name: simple-docker-proxy
     expose:
-      - 9200/tcp
-
-  logstash:
-    image: dimdm/logstash:5.4.2
-    container_name: logstash
-    links:
-      - elasticsearch
-    ports:
-      - 127.0.0.1:12201:12201/udp
-
-  kibana:
-    image: dimdm/kibana:5.4.0
-    container_name: kibana
-    links:
-      - elasticsearch
-    expose:
-      - 5601/tcp
-    ports:
-      - 127.0.0.1:5601:5601/tcp
-
-  redis:
-    image: redis:alpine
-    container_name: redis
-    expose:
-      - 6379/tcp
-    depends_on:
-      - logstash
-    logging:
-      driver: gelf
-      options:
-        gelf-address: udp://localhost:12201
-
-  redis-commander:
-    image: dimdm/redis-commander
-    container_name: redis-commander
-    ports:
-      - 127.0.0.1:8081:8081
-    links:
-      - redis
-    depends_on:
-      - logstash
-    logging:
-      driver: gelf
-      options:
-        gelf-address: udp://localhost:12201
-
-  influxdb:
-    image: influxdb:alpine
-    container_name: influxdb
-    expose:
-      - 8086/tcp
-    depends_on:
-      - logstash
-    logging:
-      driver: gelf
-      options:
-        gelf-address: udp://localhost:12201
-
-  prometheus:
-    image: prom/prometheus
-    container_name: prometheus
-    ports:
-      - 127.0.0.1:9090:9090
-    depends_on:
-      - logstash
-    logging:
-      driver: gelf
-      options:
-        gelf-address: udp://localhost:12201
-
-  arangodb:
-    image: arangodb
-    container_name: arangodb
-    environment:
-      - ARANGO_NO_AUTH=1
-    ports:
-      - 127.0.0.1:8529:8529
-    depends_on:
-      - logstash
-    logging:
-      driver: gelf
-      options:
-        gelf-address: udp://localhost:12201
-
-  rethinkdb:
-    image: rethinkdb
-    container_name: rethinkdb
-    ports:
-      - 127.0.0.1:8080:8080
-    depends_on:
-      - logstash
-    logging:
-      driver: gelf
-      options:
-        gelf-address: udp://localhost:12201
-
-  postgres:
-    image: postgres:alpine
-    container_name: postgres
-    environment:
-      - POSTGRES_DB=radapi
-      - POSTGRES_USER=radapi
-      - POSTGRES_PASSWORD=radapi
-    expose:
-      - 5432/tcp
-    depends_on:
-      - logstash
-    logging:
-      driver: gelf
-      options:
-        gelf-address: udp://localhost:12201
-
-  pgadmin:
-    image: thajeztah/pgadmin4
-    container_name: pgadmin
-    links:
-      - postgres
-    ports:
-      - 127.0.0.1:5050:5050
-    depends_on:
-      - logstash
-    logging:
-      driver: gelf
-      options:
-        gelf-address: udp://localhost:12201
-
-  radapi:
-    image: quay.io/dimdm/radapi:master
-    container_name: radapi
-    links:
-      - prometheus
-      - arangodb
-      - rethinkdb
-      - postgres
-      - redis
-      - influxdb
-      - elasticsearch
-    ports:
-      - 127.0.0.1:1880:1880
-    depends_on:
-      - logstash
-    logging:
-      driver: gelf
-      options:
-        gelf-address: udp://localhost:12201
-
-  notebook:
-    image: dimdm/notebook
-    container_name: notebook
-    links:
-      - prometheus
-      - arangodb
-      - rethinkdb
-      - postgres
-      - redis
-      - influxdb
-      - elasticsearch
-      - radapi
-    ports:
-      - 127.0.0.1:8888:8888
-    depends_on:
-      - logstash
-    logging:
-      driver: gelf
-      options:
-        gelf-address: udp://localhost:12201
-
-  etherpad:
-    image: dimdm/etherpad
-    container_name: etherpad
-    ports:
-      - 127.0.0.1:9001:9001
-    depends_on:
-      - logstash
-    logging:
-      driver: gelf
-      options:
-        gelf-address: udp://localhost:12201
-
-  grafana:
-    image: dimdm/grafana:4.2.0
-    container_name: grafana
-    links:
-      - influxdb
-      - elasticsearch
-    ports:
-      - 127.0.0.1:3000:3000
-
-  weave:
-    image: weaveworks/scope:latest_release
-    container_name: weave
-    privileged: true
-    pid: "host"
-    labels:
-      - "works.weave.role=system"
+      - 1234/tcp
     volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock:rw"
-    environment:
-      - CHECKPOINT_DISABLE=true
-    command:
-      - "--probe.docker"
-      - "true"
+      - /var/run/docker.sock:/var/run/docker.sock:rw
+  radapi:
+    image: dimdm/radapi:arm32v6
+    container_name: radapi
+    expose:
+      - 1880/tcp
     ports:
-      - 127.0.0.1:4040:4040
+      - 0.0.0.0:1880:1880/tcp
+    links:
+      - simple-docker-proxy
+    volumes:
+      - radapi_data:/radapi/data:rw
+
+volumes:
+  radapi_data:
+    driver: local

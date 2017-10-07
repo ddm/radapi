@@ -79,7 +79,7 @@
                             },
                             {
                                 description: "Swagger UI",
-                                url: `//${window.location.hostname}:1880/api.html`,
+                                url: `//${window.location.hostname}${window.location.port ? ':' : ''}${window.location.port}/api.html`,
                                 sandbox: "allow-same-origin allow-scripts"
                             },
                         ]

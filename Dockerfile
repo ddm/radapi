@@ -1,10 +1,10 @@
-FROM dimdm/node:8.6.0
+FROM dimdm/node:8.7.0
 
 ENV NODE_ENV=production
 ARG NODE_ENV=production
 ARG RADAPI_PATH=/radapi
 
-COPY package.json .bowerrc bower.json index.js ${RADAPI_PATH}/
+COPY package.json yarn.lock .bowerrc bower.json index.js ${RADAPI_PATH}/
 COPY public/* ${RADAPI_PATH}/public/
 ADD https://raw.githubusercontent.com/node-red/catalogue.nodered.org/master/catalogue.json ${RADAPI_PATH}/public/
 
@@ -12,13 +12,13 @@ WORKDIR ${RADAPI_PATH}
 RUN apk --no-cache add --virtual build-dependencies \
       git \
       build-base \
-      python &&\
+      python \
+      yarn &&\
     mkdir -p ${RADAPI_PATH}/data &&\
     cd ${RADAPI_PATH} &&\
-    npm install &&\
-    npm install -g bower &&\
-    bower install &&\
-    npm uninstall -g bower &&\
+    yarn add bower &&\
+    yarn &&\
+    yarn remove bower &&\
     apk del --purge build-dependencies &&\
     rm -rf /var/cache/apk/* &&\
     rm -rf /root/* &&\
@@ -27,6 +27,7 @@ RUN apk --no-cache add --virtual build-dependencies \
     chown -R radapi:radapi ${RADAPI_PATH}
 
 VOLUME ${RADAPI_PATH}/data
+VOLUME ${RADAPI_PATH}/public
 
 EXPOSE 1880
 

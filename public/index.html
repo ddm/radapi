@@ -78,6 +78,11 @@
                                 sandbox: "allow-same-origin allow-scripts"
                             },
                             {
+                                description: "Dashboard",
+                                url: `//${window.location.hostname}${window.location.port ? ':' : ''}${window.location.port}/endpoints/ui`,
+                                sandbox: "allow-same-origin allow-scripts"
+                            },
+                            {
                                 description: "Swagger UI",
                                 url: `//${window.location.hostname}${window.location.port ? ':' : ''}${window.location.port}/api.html`,
                                 sandbox: "allow-same-origin allow-scripts"

@@ -73,65 +73,15 @@
                         readonly: true,
                         value: [
                             {
-                                description: "Weave scope",
-                                url: `//${window.location.hostname}:4040/#!/state/{"controlPipe":null,"topologyViewMode":"topo","nodeDetails":[],"pinnedMetricType":"Memory","pinnedSearches":[],"searchQuery":"","selectedNodeId":null,"gridSortedBy":null,"gridSortedDesc":null,"topologyId":"containers","topologyOptions":{"processes":{"unconnected":"hide"},"containers":{"system":"application","stopped":"running","pseudo":"show"}},"showingNetworks":true}`,
-                                sandbox: "allow-same-origin allow-scripts"
-                            },
-                            {
-                                description: "Kibana",
-                                url: `//${window.location.hostname}:5601/app/kibana#/discover?_g=(refreshInterval:('$$hashKey':'object:569',display:'10%20seconds',pause:!f,section:1,value:10000),time:(from:now-15m,mode:quick,to:now))&_a=(columns:!(container_name,message),index:'logstash-*',interval:auto,query:(query_string:(analyze_wildcard:!t,query:'*')),sort:!('@timestamp',desc))`,
-                                sandbox: "allow-same-origin allow-scripts"
-                            },
-                            {
                                 description: "Node-RED",
                                 url: `//${window.location.hostname}${window.location.port ? ':' : ''}${window.location.port}/edit`,
                                 sandbox: "allow-same-origin allow-scripts"
                             },
                             {
-                                description: "Jupyter Notebooks",
-                                url: `//${window.location.hostname}:8888/tree?`,
-                                sandbox: "allow-same-origin allow-scripts"
-                            },
-                            {
                                 description: "Swagger UI",
-                                url: `//${window.location.hostname}:1880/api.html`,
+                                url: `//${window.location.hostname}${window.location.port ? ':' : ''}${window.location.port}/api.html`,
                                 sandbox: "allow-same-origin allow-scripts"
                             },
-                            {
-                                description: "Grafana",
-                                url: `//${window.location.hostname}:3000`,
-                                sandbox: "allow-same-origin allow-scripts"
-                            },
-                            {
-                                description: "Prometheus",
-                                url: `//${window.location.hostname}:9090/graph?g0.expr=process_virtual_memory_bytes&g0.tab=0`,
-                                sandbox: "allow-same-origin allow-scripts"
-                            },
-                            {
-                                description: "ArangoDB",
-                                url: `//${window.location.hostname}:8529/_db/_system/_admin/aardvark/index.html#dashboard`,
-                                sandbox: "allow-same-origin allow-scripts"
-                            },
-                            {
-                                description: "RethinkDB",
-                                url: `//${window.location.hostname}:8080`,
-                                sandbox: "allow-same-origin allow-scripts"
-                            },
-                            {
-                                description: "Redis Commander",
-                                url: `//${window.location.hostname}:8081`,
-                                sandbox: "allow-same-origin allow-scripts"
-                            },
-                            {
-                                description: "pdAdmin4",
-                                url: `//${window.location.hostname}:5050/browser/`,
-                                sandbox: ""
-                            },
-                            {
-                                description: "Etherpad",
-                                url: `//${window.location.hostname}:9001/p/test`,
-                                sandbox: "allow-same-origin allow-scripts"
-                            }
                         ]
                     }
                 },

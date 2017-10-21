@@ -23,7 +23,8 @@ RUN apk --no-cache add --virtual build-dependencies \
     rm -rf /var/cache/apk/* &&\
     rm -rf /root/* &&\
     rm -rf /tmp/* &&\
-    adduser -D -u 1000 radapi &&\
+    addgroup -g 1000 radapi &&\
+    adduser -D -u 1000 -G radapi radapi &&\
     chown -R radapi:radapi ${RADAPI_PATH}
 
 VOLUME ${RADAPI_PATH}/data

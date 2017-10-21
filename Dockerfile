@@ -1,4 +1,4 @@
-FROM dimdm/node:8.6.0
+FROM dimdm/node:8.7.0
 
 ENV NODE_ENV=production
 ARG NODE_ENV=production
@@ -6,6 +6,7 @@ ARG RADAPI_PATH=/radapi
 
 COPY package.json .bowerrc bower.json index.js ${RADAPI_PATH}/
 COPY public/* ${RADAPI_PATH}/public/
+ADD https://raw.githubusercontent.com/node-red/catalogue.nodered.org/master/catalogue.json ${RADAPI_PATH}/public/
 
 RUN apk --no-cache add --virtual build-dependencies \
       git \

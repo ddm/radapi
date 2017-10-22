@@ -29,7 +29,7 @@ RUN apk --no-cache add --virtual runtime-dependencies \
     rm -rf /root/* &&\
     rm -rf /tmp/* &&\
     addgroup -g 1000 radapi &&\
-    adduser -D -u 1000 -G radapi radapi &&\
+    adduser -D -u 1000 -G radapi -s /bin/sh radapi &&\
     chown -R radapi:radapi ${RADAPI_PATH}
 
 VOLUME ${RADAPI_PATH}/data

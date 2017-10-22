@@ -10,15 +10,19 @@ ADD https://raw.githubusercontent.com/node-red/catalogue.nodered.org/master/cata
 
 WORKDIR ${RADAPI_PATH}
 RUN apk --no-cache add --virtual build-dependencies \
+      python &&\
+    apk --no-cache add --virtual build-dependencies \
       git \
       build-base \
-      python \
+      python-dev \
+      py-pip \
       yarn &&\
     mkdir -p ${RADAPI_PATH}/data &&\
     cd ${RADAPI_PATH} &&\
     yarn add bower &&\
     yarn &&\
     yarn remove bower &&\
+    pip install rpi.gpio \
     apk del --purge build-dependencies &&\
     rm -rf /var/cache/apk/* &&\
     rm -rf /root/* &&\

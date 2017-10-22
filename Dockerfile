@@ -6,7 +6,8 @@ ARG RADAPI_PATH=/radapi
 
 COPY package.json yarn.lock .bowerrc bower.json index.js ${RADAPI_PATH}/
 COPY public/* ${RADAPI_PATH}/public/
-COPY nrgpio /usr/local/bin/
+# TODO DEBUG
+COPY nrgpio ${RADAPI_PATH}/node_modules/node-red/nodes/core/hardware/nrgpio
 ADD https://raw.githubusercontent.com/node-red/catalogue.nodered.org/master/catalogue.json ${RADAPI_PATH}/public/
 
 WORKDIR ${RADAPI_PATH}

@@ -1,0 +1,3 @@
+#! /usr/bin/env sh
+
+python -u /radapi/node_modules/node-red/nodes/core/hardware/nrgpio.py $@

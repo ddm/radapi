@@ -6,11 +6,11 @@ ARG RADAPI_PATH=/radapi
 
 COPY package.json yarn.lock .bowerrc bower.json index.js ${RADAPI_PATH}/
 COPY public/* ${RADAPI_PATH}/public/
-COPY nrgpio /usr/local/bin
+COPY nrgpio /usr/local/bin/
 ADD https://raw.githubusercontent.com/node-red/catalogue.nodered.org/master/catalogue.json ${RADAPI_PATH}/public/
 
 WORKDIR ${RADAPI_PATH}
-RUN apk --no-cache add --virtual build-dependencies \
+RUN apk --no-cache add --virtual runtime-dependencies \
       python &&\
     apk --no-cache add --virtual build-dependencies \
       git \

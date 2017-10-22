@@ -25,8 +25,7 @@ RUN apk --no-cache add --virtual runtime-dependencies \
     yarn remove bower &&\
     pip install rpi.gpio &&\
     apk del --purge build-dependencies &&\
-    rm -rf /var/cache/apk/* &&\
-    rm -rf /root/* &&\
+    rm -rf /var/cache/apk/* &&\\
     rm -rf /tmp/* &&\
     addgroup -g 1000 radapi &&\
     adduser -D -u 1000 -G radapi -s /bin/sh radapi &&\
@@ -40,4 +39,3 @@ EXPOSE 1880
 USER radapi
 
 CMD npm start
-

@@ -25,10 +25,10 @@ RUN apk --no-cache add --virtual runtime-dependencies \
     yarn remove bower &&\
     pip install rpi.gpio &&\
     apk del --purge build-dependencies &&\
-    rm -rf /var/cache/apk/* &&\\
+    rm -rf /var/cache/apk/* &&\
     rm -rf /tmp/* &&\
     addgroup -g 1000 radapi &&\
-    adduser -D -u 1000 -G radapi -s /bin/sh radapi &&\
+    adduser -u 1000 -G radapi -s /bin/sh -D radapi &&\
     chown -R radapi:radapi ${RADAPI_PATH}
 
 VOLUME ${RADAPI_PATH}/data

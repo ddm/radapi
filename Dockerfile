@@ -6,12 +6,11 @@ ARG RADAPI_PATH=/radapi
 
 COPY package.json yarn.lock .bowerrc bower.json index.js ${RADAPI_PATH}/
 COPY public/* ${RADAPI_PATH}/public/
-# TODO DEBUG
-COPY nrgpio ${RADAPI_PATH}/node_modules/node-red/nodes/core/hardware/nrgpio
 ADD https://raw.githubusercontent.com/node-red/catalogue.nodered.org/master/catalogue.json ${RADAPI_PATH}/public/
 
 WORKDIR ${RADAPI_PATH}
 RUN apk --no-cache add --virtual runtime-dependencies \
+      bash \
       python &&\
     apk --no-cache add --virtual build-dependencies \
       git \
@@ -27,16 +26,14 @@ RUN apk --no-cache add --virtual runtime-dependencies \
     pip install rpi.gpio &&\
     apk del --purge build-dependencies &&\
     rm -rf /var/cache/apk/* &&\
-    rm -rf /tmp/* &&\
-    addgroup -g 1000 radapi &&\
-    adduser -u 1000 -G radapi -s /bin/sh -D radapi &&\
-    chown -R radapi:radapi ${RADAPI_PATH}
+    rm -rf /tmp/*
 
 VOLUME ${RADAPI_PATH}/data
 VOLUME ${RADAPI_PATH}/public
+VOLUME /dev/mem
+VOLUME /sys/class/gpio
 
 EXPOSE 1880
 
-USER radapi
-
 CMD npm start
+

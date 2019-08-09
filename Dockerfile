@@ -1,4 +1,4 @@
-FROM dimdm/node:8.9.0
+FROM node:10.16.2-alpine
 
 ENV NODE_ENV=production
 ARG NODE_ENV=production
@@ -23,15 +23,13 @@ RUN apk --no-cache add --virtual build-dependencies \
     rm -rf /var/cache/apk/* &&\
     rm -rf /root/* &&\
     rm -rf /tmp/* &&\
-    addgroup -g 1000 radapi &&\
-    adduser -D -u 1000 -G radapi radapi &&\
-    chown -R radapi:radapi ${RADAPI_PATH}
+    chown -R node:node ${RADAPI_PATH}
 
 VOLUME ${RADAPI_PATH}/data
 VOLUME ${RADAPI_PATH}/public
 
 EXPOSE 1880
 
-USER radapi
+USER node
 
 CMD npm start

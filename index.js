@@ -48,13 +48,9 @@ var settings = {
         crypto: require("crypto"),
         _: require("underscore"),
         async: require("async"),
-        prometheus: require("prom-client"),
-        arango: require("arangojs"),
-        r: require("rethinkdb"),
-        pg: require("pg"),
-        redis: require("redis"),
         influx: require("influx"),
-        elasticsearch: require("elasticsearch")
+        i2c: require("i2c-bus"),
+        oled: require("oled-i2c-bus")
     },
 
     httpNodeMiddleware: (req,res,next) => {

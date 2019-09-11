@@ -50,7 +50,8 @@ var settings = {
         async: require("async"),
         influx: require("influx"),
         i2c: require("i2c-bus"),
-        oled: require("oled-i2c-bus")
+        oled: require("oled-i2c-bus"),
+        oledFont: require("oled-font-5x7")
     },
 
     httpNodeMiddleware: (req,res,next) => {

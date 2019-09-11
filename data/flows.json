@@ -1,0 +1,598 @@
+[
+    {
+        "id": "5e8cb6f2.c6e6b8",
+        "type": "tab",
+        "label": "DEMO",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "53d0750e.faf39c",
+        "type": "tab",
+        "label": "REST",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "897b640c.1c0018",
+        "type": "subflow",
+        "name": "GPIO",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 60,
+                "y": 60,
+                "wires": [
+                    {
+                        "id": "82a7a1a4.b10b5"
+                    }
+                ]
+            }
+        ],
+        "out": [],
+        "env": []
+    },
+    {
+        "id": "6cb2b6a7.0947d8",
+        "type": "subflow",
+        "name": "OLED",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 60,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "7f46fd93.1231f4"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 580,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "90619280.7bbcb",
+                        "port": 0
+                    },
+                    {
+                        "id": "c89296dd.4d1ec8",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": []
+    },
+    {
+        "id": "3dbc12ac.1fcd1e",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "3681941c.562adc",
+        "type": "swagger-doc",
+        "z": "",
+        "summary": "Set GPIO 40",
+        "description": "",
+        "tags": "gpio",
+        "consumes": "",
+        "produces": "",
+        "parameters": [
+            {
+                "name": "value",
+                "in": "formData",
+                "description": "1 or 0",
+                "required": true,
+                "type": "number"
+            }
+        ],
+        "responses": {},
+        "deprecated": false
+    },
+    {
+        "id": "a948db5b.1be028",
+        "type": "swagger-doc",
+        "z": "",
+        "summary": "Draw rectangle on I2C OLED",
+        "description": "",
+        "tags": "oled",
+        "consumes": "",
+        "produces": "",
+        "parameters": [],
+        "responses": {},
+        "deprecated": false
+    },
+    {
+        "id": "e776aef7.9c8e5",
+        "type": "swagger-doc",
+        "z": "",
+        "summary": "Clear and shutdown OLED",
+        "description": "",
+        "tags": "oled",
+        "consumes": "",
+        "produces": "",
+        "parameters": [],
+        "responses": {},
+        "deprecated": false
+    },
+    {
+        "id": "82a7a1a4.b10b5",
+        "type": "rpi-gpio out",
+        "z": "897b640c.1c0018",
+        "name": "",
+        "pin": "40",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "x": 220,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "dd82d36f.e0288",
+        "type": "subflow:897b640c.1c0018",
+        "z": "5e8cb6f2.c6e6b8",
+        "name": "PIN: 40",
+        "env": [],
+        "x": 290,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "c89296dd.4d1ec8",
+        "type": "function",
+        "z": "6cb2b6a7.0947d8",
+        "name": "draw rectangle on OLED",
+        "func": "var i2c = global.get(\"i2c\");\nvar i2cBus = i2c.openSync(1);\n\nconst SIZE_X=128;\nconst SIZE_Y=64;\n\nvar opts = {\n  width: SIZE_X,\n  height: SIZE_Y,\n  address: 0x3C\n};\n\nvar Oled = global.get(\"oled\");\nvar oled = new Oled(i2cBus, opts);\n\noled.clearDisplay();\noled.turnOnDisplay();\n\noled.drawPixel([\n    [SIZE_X-1, 0, 1],\n    [SIZE_X-1, SIZE_Y-1, 1],\n    [0, SIZE_Y-1, 1],\n    [0, 0, 1]\n]);\n\noled.drawLine(1, 1, SIZE_X-2, 1, 1);\noled.drawLine(SIZE_X-2, 1, SIZE_X-2, SIZE_Y-2, 1);\noled.drawLine(SIZE_X-2, SIZE_Y-2, 1, SIZE_Y-2, 1);\noled.drawLine(1, SIZE_Y-2, 1, 1, 1);\n\nmsg.payload = \"You should see a rectangle on the screen 👍\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 370,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "90619280.7bbcb",
+        "type": "function",
+        "z": "6cb2b6a7.0947d8",
+        "name": "shutdown OLED",
+        "func": "var I2C = global.get(\"i2c\");\nvar Oled = global.get(\"oled\");\n\nvar oled = new Oled(I2C.openSync(1), {\n  width: 128,\n  height: 64,\n  address: 0x3C\n});\n\noled.clearDisplay();\noled.turnOffDisplay();\n\nmsg.payload = \"Screen should be off 👍\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 360,
+        "y": 20,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7f46fd93.1231f4",
+        "type": "switch",
+        "z": "6cb2b6a7.0947d8",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "neq",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 170,
+        "y": 80,
+        "wires": [
+            [
+                "90619280.7bbcb"
+            ],
+            [
+                "c89296dd.4d1ec8"
+            ]
+        ]
+    },
+    {
+        "id": "905fa500.d232f8",
+        "type": "inject",
+        "z": "5e8cb6f2.c6e6b8",
+        "name": "3.3v",
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "dd82d36f.e0288"
+            ]
+        ]
+    },
+    {
+        "id": "7585156c.9fc3ec",
+        "type": "inject",
+        "z": "5e8cb6f2.c6e6b8",
+        "name": "0v",
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 130,
+        "y": 60,
+        "wires": [
+            [
+                "dd82d36f.e0288"
+            ]
+        ]
+    },
+    {
+        "id": "605ff1ea.43ca",
+        "type": "http response",
+        "z": "53d0750e.faf39c",
+        "name": "👍",
+        "statusCode": "200",
+        "headers": {},
+        "x": 650,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "ca8d1338.dc2e6",
+        "type": "http in",
+        "z": "53d0750e.faf39c",
+        "name": "",
+        "url": "/gpio/40",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "3681941c.562adc",
+        "x": 160,
+        "y": 60,
+        "wires": [
+            [
+                "a104be18.0b0e7"
+            ]
+        ]
+    },
+    {
+        "id": "a104be18.0b0e7",
+        "type": "function",
+        "z": "53d0750e.faf39c",
+        "name": "convert",
+        "func": "msg.payload = (msg.payload.value === \"0\") ? 0 : 1;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 360,
+        "y": 60,
+        "wires": [
+            [
+                "8bb82bc0.d7add8",
+                "932fa12c.6c245"
+            ]
+        ]
+    },
+    {
+        "id": "8bb82bc0.d7add8",
+        "type": "function",
+        "z": "53d0750e.faf39c",
+        "name": "👍",
+        "func": "msg.payload = (msg.payload * 3.3) + \"V\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 516,
+        "y": 60,
+        "wires": [
+            [
+                "605ff1ea.43ca"
+            ]
+        ]
+    },
+    {
+        "id": "906573bd.25dcf",
+        "type": "http in",
+        "z": "53d0750e.faf39c",
+        "name": "",
+        "url": "/oled/rectangle",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "a948db5b.1be028",
+        "x": 170,
+        "y": 243,
+        "wires": [
+            [
+                "61b00f9a.2d3ff"
+            ]
+        ]
+    },
+    {
+        "id": "3d125294.c6568e",
+        "type": "http in",
+        "z": "53d0750e.faf39c",
+        "name": "",
+        "url": "/oled/shutdown",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "e776aef7.9c8e5",
+        "x": 170,
+        "y": 353,
+        "wires": [
+            [
+                "a7de6ff7.505af"
+            ]
+        ]
+    },
+    {
+        "id": "61b00f9a.2d3ff",
+        "type": "function",
+        "z": "53d0750e.faf39c",
+        "name": "1",
+        "func": "msg.payload = 1;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 391,
+        "y": 243,
+        "wires": [
+            [
+                "c605d318.24d32"
+            ]
+        ]
+    },
+    {
+        "id": "a7de6ff7.505af",
+        "type": "function",
+        "z": "53d0750e.faf39c",
+        "name": "0",
+        "func": "msg.payload = 0;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 390,
+        "y": 353,
+        "wires": [
+            [
+                "c605d318.24d32"
+            ]
+        ]
+    },
+    {
+        "id": "ea2ef658.97bb58",
+        "type": "http response",
+        "z": "53d0750e.faf39c",
+        "name": "👍",
+        "statusCode": "",
+        "headers": {},
+        "x": 670,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "c605d318.24d32",
+        "type": "subflow:6cb2b6a7.0947d8",
+        "z": "53d0750e.faf39c",
+        "name": "",
+        "x": 530,
+        "y": 300,
+        "wires": [
+            [
+                "ea2ef658.97bb58"
+            ]
+        ]
+    },
+    {
+        "id": "932fa12c.6c245",
+        "type": "subflow:897b640c.1c0018",
+        "z": "53d0750e.faf39c",
+        "name": "",
+        "x": 510,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "9a815d56.c468d",
+        "type": "debug",
+        "z": "5e8cb6f2.c6e6b8",
+        "name": "Vout",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 510,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "a9fd3f6d.0e9a6",
+        "type": "rpi-gpio in",
+        "z": "5e8cb6f2.c6e6b8",
+        "name": "",
+        "pin": "37",
+        "intype": "tri",
+        "debounce": "25",
+        "read": false,
+        "x": 290,
+        "y": 140,
+        "wires": [
+            [
+                "a34d0920.bf9808"
+            ]
+        ]
+    },
+    {
+        "id": "a34d0920.bf9808",
+        "type": "function",
+        "z": "5e8cb6f2.c6e6b8",
+        "name": "format",
+        "func": "msg.payload = parseInt(msg.payload, 10) * 3.3;\nmsg.payload = `GPIO 26: ${msg.payload} V`;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 397,
+        "y": 211,
+        "wires": [
+            [
+                "9a815d56.c468d"
+            ]
+        ]
+    },
+    {
+        "id": "e6bc94d8.abbcf8",
+        "type": "inject",
+        "z": "5e8cb6f2.c6e6b8",
+        "name": "rectangle",
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 120,
+        "y": 294,
+        "wires": [
+            [
+                "558c23bc.891bec"
+            ]
+        ]
+    },
+    {
+        "id": "6edfa744.488118",
+        "type": "inject",
+        "z": "5e8cb6f2.c6e6b8",
+        "name": "shutdown",
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 120,
+        "y": 354,
+        "wires": [
+            [
+                "558c23bc.891bec"
+            ]
+        ]
+    },
+    {
+        "id": "558c23bc.891bec",
+        "type": "subflow:6cb2b6a7.0947d8",
+        "z": "5e8cb6f2.c6e6b8",
+        "name": "",
+        "x": 312,
+        "y": 323,
+        "wires": [
+            []
+        ]
+    }
+]

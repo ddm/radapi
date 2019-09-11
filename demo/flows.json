@@ -1,20 +1,20 @@
 [
     {
-        "id": "5e8cb6f2.c6e6b8",
+        "id": "e24b1269.772e4",
         "type": "tab",
         "label": "DEMO",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "53d0750e.faf39c",
+        "id": "dba4163.d6839e8",
         "type": "tab",
         "label": "REST",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "897b640c.1c0018",
+        "id": "a3fefd86.2db11",
         "type": "subflow",
         "name": "GPIO",
         "info": "",
@@ -25,7 +25,7 @@
                 "y": 60,
                 "wires": [
                     {
-                        "id": "82a7a1a4.b10b5"
+                        "id": "69e3bf08.26598"
                     }
                 ]
             }
@@ -34,7 +34,7 @@
         "env": []
     },
     {
-        "id": "6cb2b6a7.0947d8",
+        "id": "127bc0ee.6df25f",
         "type": "subflow",
         "name": "OLED",
         "info": "",
@@ -45,7 +45,7 @@
                 "y": 80,
                 "wires": [
                     {
-                        "id": "7f46fd93.1231f4"
+                        "id": "772bf478.87d83c"
                     }
                 ]
             }
@@ -56,11 +56,11 @@
                 "y": 80,
                 "wires": [
                     {
-                        "id": "90619280.7bbcb",
+                        "id": "657b23f0.ccdf6c",
                         "port": 0
                     },
                     {
-                        "id": "c89296dd.4d1ec8",
+                        "id": "29af73e9.d973fc",
                         "port": 0
                     }
                 ]
@@ -69,7 +69,7 @@
         "env": []
     },
     {
-        "id": "3dbc12ac.1fcd1e",
+        "id": "77aa9ec1.5a588",
         "type": "ui_base",
         "theme": {
             "name": "theme-light",
@@ -165,7 +165,7 @@
         }
     },
     {
-        "id": "3681941c.562adc",
+        "id": "aa48f4a5.5417d8",
         "type": "swagger-doc",
         "z": "",
         "summary": "Set GPIO 40",
@@ -186,7 +186,7 @@
         "deprecated": false
     },
     {
-        "id": "a948db5b.1be028",
+        "id": "c2fcc43e.7a8438",
         "type": "swagger-doc",
         "z": "",
         "summary": "Draw rectangle on I2C OLED",
@@ -199,7 +199,7 @@
         "deprecated": false
     },
     {
-        "id": "e776aef7.9c8e5",
+        "id": "28d71081.9d51d",
         "type": "swagger-doc",
         "z": "",
         "summary": "Clear and shutdown OLED",
@@ -212,9 +212,28 @@
         "deprecated": false
     },
     {
-        "id": "82a7a1a4.b10b5",
+        "id": "3dcc593b.b21be6",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "6fd09e10.6cb2e",
+        "type": "ui_group",
+        "z": "",
+        "name": "Demo",
+        "tab": "3dcc593b.b21be6",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "69e3bf08.26598",
         "type": "rpi-gpio out",
-        "z": "897b640c.1c0018",
+        "z": "a3fefd86.2db11",
         "name": "",
         "pin": "40",
         "set": true,
@@ -226,19 +245,19 @@
         "wires": []
     },
     {
-        "id": "dd82d36f.e0288",
-        "type": "subflow:897b640c.1c0018",
-        "z": "5e8cb6f2.c6e6b8",
+        "id": "b4cd33ec.3eaca",
+        "type": "subflow:a3fefd86.2db11",
+        "z": "e24b1269.772e4",
         "name": "PIN: 40",
         "env": [],
-        "x": 290,
-        "y": 80,
+        "x": 424,
+        "y": 89,
         "wires": []
     },
     {
-        "id": "c89296dd.4d1ec8",
+        "id": "29af73e9.d973fc",
         "type": "function",
-        "z": "6cb2b6a7.0947d8",
+        "z": "127bc0ee.6df25f",
         "name": "draw rectangle on OLED",
         "func": "var i2c = global.get(\"i2c\");\nvar i2cBus = i2c.openSync(1);\n\nconst SIZE_X=128;\nconst SIZE_Y=64;\n\nvar opts = {\n  width: SIZE_X,\n  height: SIZE_Y,\n  address: 0x3C\n};\n\nvar Oled = global.get(\"oled\");\nvar oled = new Oled(i2cBus, opts);\n\noled.clearDisplay();\noled.turnOnDisplay();\n\noled.drawPixel([\n    [SIZE_X-1, 0, 1],\n    [SIZE_X-1, SIZE_Y-1, 1],\n    [0, SIZE_Y-1, 1],\n    [0, 0, 1]\n]);\n\noled.drawLine(1, 1, SIZE_X-2, 1, 1);\noled.drawLine(SIZE_X-2, 1, SIZE_X-2, SIZE_Y-2, 1);\noled.drawLine(SIZE_X-2, SIZE_Y-2, 1, SIZE_Y-2, 1);\noled.drawLine(1, SIZE_Y-2, 1, 1, 1);\n\nmsg.payload = \"You should see a rectangle on the screen 👍\";\nreturn msg;",
         "outputs": 1,
@@ -250,9 +269,9 @@
         ]
     },
     {
-        "id": "90619280.7bbcb",
+        "id": "657b23f0.ccdf6c",
         "type": "function",
-        "z": "6cb2b6a7.0947d8",
+        "z": "127bc0ee.6df25f",
         "name": "shutdown OLED",
         "func": "var I2C = global.get(\"i2c\");\nvar Oled = global.get(\"oled\");\n\nvar oled = new Oled(I2C.openSync(1), {\n  width: 128,\n  height: 64,\n  address: 0x3C\n});\n\noled.clearDisplay();\noled.turnOffDisplay();\n\nmsg.payload = \"Screen should be off 👍\"\nreturn msg;",
         "outputs": 1,
@@ -264,9 +283,9 @@
         ]
     },
     {
-        "id": "7f46fd93.1231f4",
+        "id": "772bf478.87d83c",
         "type": "switch",
-        "z": "6cb2b6a7.0947d8",
+        "z": "127bc0ee.6df25f",
         "name": "",
         "property": "payload",
         "propertyType": "msg",
@@ -289,57 +308,17 @@
         "y": 80,
         "wires": [
             [
-                "90619280.7bbcb"
+                "657b23f0.ccdf6c"
             ],
             [
-                "c89296dd.4d1ec8"
+                "29af73e9.d973fc"
             ]
         ]
     },
     {
-        "id": "905fa500.d232f8",
-        "type": "inject",
-        "z": "5e8cb6f2.c6e6b8",
-        "name": "3.3v",
-        "topic": "",
-        "payload": "1",
-        "payloadType": "num",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 130,
-        "y": 100,
-        "wires": [
-            [
-                "dd82d36f.e0288"
-            ]
-        ]
-    },
-    {
-        "id": "7585156c.9fc3ec",
-        "type": "inject",
-        "z": "5e8cb6f2.c6e6b8",
-        "name": "0v",
-        "topic": "",
-        "payload": "0",
-        "payloadType": "num",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 130,
-        "y": 60,
-        "wires": [
-            [
-                "dd82d36f.e0288"
-            ]
-        ]
-    },
-    {
-        "id": "605ff1ea.43ca",
+        "id": "9b5a54dd.676478",
         "type": "http response",
-        "z": "53d0750e.faf39c",
+        "z": "dba4163.d6839e8",
         "name": "👍",
         "statusCode": "200",
         "headers": {},
@@ -348,26 +327,26 @@
         "wires": []
     },
     {
-        "id": "ca8d1338.dc2e6",
+        "id": "fe66f7f2.2c3428",
         "type": "http in",
-        "z": "53d0750e.faf39c",
+        "z": "dba4163.d6839e8",
         "name": "",
         "url": "/gpio/40",
         "method": "post",
         "upload": false,
-        "swaggerDoc": "3681941c.562adc",
+        "swaggerDoc": "aa48f4a5.5417d8",
         "x": 160,
         "y": 60,
         "wires": [
             [
-                "a104be18.0b0e7"
+                "7dfbbe32.1063b"
             ]
         ]
     },
     {
-        "id": "a104be18.0b0e7",
+        "id": "7dfbbe32.1063b",
         "type": "function",
-        "z": "53d0750e.faf39c",
+        "z": "dba4163.d6839e8",
         "name": "convert",
         "func": "msg.payload = (msg.payload.value === \"0\") ? 0 : 1;\nreturn msg;",
         "outputs": 1,
@@ -376,15 +355,15 @@
         "y": 60,
         "wires": [
             [
-                "8bb82bc0.d7add8",
-                "932fa12c.6c245"
+                "34e5d96f.bcbd16",
+                "7a4074b7.315d7c"
             ]
         ]
     },
     {
-        "id": "8bb82bc0.d7add8",
+        "id": "34e5d96f.bcbd16",
         "type": "function",
-        "z": "53d0750e.faf39c",
+        "z": "dba4163.d6839e8",
         "name": "👍",
         "func": "msg.payload = (msg.payload * 3.3) + \"V\";\nreturn msg;",
         "outputs": 1,
@@ -393,48 +372,48 @@
         "y": 60,
         "wires": [
             [
-                "605ff1ea.43ca"
+                "9b5a54dd.676478"
             ]
         ]
     },
     {
-        "id": "906573bd.25dcf",
+        "id": "fc42316a.bca33",
         "type": "http in",
-        "z": "53d0750e.faf39c",
+        "z": "dba4163.d6839e8",
         "name": "",
         "url": "/oled/rectangle",
         "method": "post",
         "upload": false,
-        "swaggerDoc": "a948db5b.1be028",
+        "swaggerDoc": "c2fcc43e.7a8438",
         "x": 170,
         "y": 243,
         "wires": [
             [
-                "61b00f9a.2d3ff"
+                "eacec015.26972"
             ]
         ]
     },
     {
-        "id": "3d125294.c6568e",
+        "id": "1c0433aa.2b7b4c",
         "type": "http in",
-        "z": "53d0750e.faf39c",
+        "z": "dba4163.d6839e8",
         "name": "",
         "url": "/oled/shutdown",
         "method": "post",
         "upload": false,
-        "swaggerDoc": "e776aef7.9c8e5",
+        "swaggerDoc": "28d71081.9d51d",
         "x": 170,
         "y": 353,
         "wires": [
             [
-                "a7de6ff7.505af"
+                "6bf7253b.0f648c"
             ]
         ]
     },
     {
-        "id": "61b00f9a.2d3ff",
+        "id": "eacec015.26972",
         "type": "function",
-        "z": "53d0750e.faf39c",
+        "z": "dba4163.d6839e8",
         "name": "1",
         "func": "msg.payload = 1;\nreturn msg;",
         "outputs": 1,
@@ -443,14 +422,14 @@
         "y": 243,
         "wires": [
             [
-                "c605d318.24d32"
+                "9a0b5e96.2bc3a"
             ]
         ]
     },
     {
-        "id": "a7de6ff7.505af",
+        "id": "6bf7253b.0f648c",
         "type": "function",
-        "z": "53d0750e.faf39c",
+        "z": "dba4163.d6839e8",
         "name": "0",
         "func": "msg.payload = 0;\nreturn msg;",
         "outputs": 1,
@@ -459,14 +438,14 @@
         "y": 353,
         "wires": [
             [
-                "c605d318.24d32"
+                "9a0b5e96.2bc3a"
             ]
         ]
     },
     {
-        "id": "ea2ef658.97bb58",
+        "id": "bb1ef474.9384b8",
         "type": "http response",
-        "z": "53d0750e.faf39c",
+        "z": "dba4163.d6839e8",
         "name": "👍",
         "statusCode": "",
         "headers": {},
@@ -475,124 +454,183 @@
         "wires": []
     },
     {
-        "id": "c605d318.24d32",
-        "type": "subflow:6cb2b6a7.0947d8",
-        "z": "53d0750e.faf39c",
+        "id": "9a0b5e96.2bc3a",
+        "type": "subflow:127bc0ee.6df25f",
+        "z": "dba4163.d6839e8",
         "name": "",
         "x": 530,
         "y": 300,
         "wires": [
             [
-                "ea2ef658.97bb58"
+                "bb1ef474.9384b8"
             ]
         ]
     },
     {
-        "id": "932fa12c.6c245",
-        "type": "subflow:897b640c.1c0018",
-        "z": "53d0750e.faf39c",
+        "id": "7a4074b7.315d7c",
+        "type": "subflow:a3fefd86.2db11",
+        "z": "dba4163.d6839e8",
         "name": "",
         "x": 510,
         "y": 140,
         "wires": []
     },
     {
-        "id": "9a815d56.c468d",
-        "type": "debug",
-        "z": "5e8cb6f2.c6e6b8",
-        "name": "Vout",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "x": 510,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "a9fd3f6d.0e9a6",
+        "id": "8de20bcf.830148",
         "type": "rpi-gpio in",
-        "z": "5e8cb6f2.c6e6b8",
+        "z": "e24b1269.772e4",
         "name": "",
         "pin": "37",
         "intype": "tri",
         "debounce": "25",
         "read": false,
-        "x": 290,
-        "y": 140,
+        "x": 110,
+        "y": 200,
         "wires": [
             [
-                "a34d0920.bf9808"
+                "f66a408a.3719c"
             ]
         ]
     },
     {
-        "id": "a34d0920.bf9808",
-        "type": "function",
-        "z": "5e8cb6f2.c6e6b8",
-        "name": "format",
-        "func": "msg.payload = parseInt(msg.payload, 10) * 3.3;\nmsg.payload = `GPIO 26: ${msg.payload} V`;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 397,
-        "y": 211,
-        "wires": [
-            [
-                "9a815d56.c468d"
-            ]
-        ]
-    },
-    {
-        "id": "e6bc94d8.abbcf8",
-        "type": "inject",
-        "z": "5e8cb6f2.c6e6b8",
-        "name": "rectangle",
-        "topic": "",
-        "payload": "1",
-        "payloadType": "num",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 120,
-        "y": 294,
-        "wires": [
-            [
-                "558c23bc.891bec"
-            ]
-        ]
-    },
-    {
-        "id": "6edfa744.488118",
-        "type": "inject",
-        "z": "5e8cb6f2.c6e6b8",
-        "name": "shutdown",
-        "topic": "",
-        "payload": "0",
-        "payloadType": "num",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 120,
-        "y": 354,
-        "wires": [
-            [
-                "558c23bc.891bec"
-            ]
-        ]
-    },
-    {
-        "id": "558c23bc.891bec",
-        "type": "subflow:6cb2b6a7.0947d8",
-        "z": "5e8cb6f2.c6e6b8",
+        "id": "34bc68e5.9b5c48",
+        "type": "subflow:127bc0ee.6df25f",
+        "z": "e24b1269.772e4",
         "name": "",
-        "x": 312,
-        "y": 323,
+        "x": 363,
+        "y": 346,
         "wires": [
             []
         ]
+    },
+    {
+        "id": "14429a2a.249ac6",
+        "type": "ui_button",
+        "z": "e24b1269.772e4",
+        "name": "",
+        "group": "6fd09e10.6cb2e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Set GPIO 21 (PIN 40) HIGH ⬆️",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "",
+        "x": 170,
+        "y": 60,
+        "wires": [
+            [
+                "b4cd33ec.3eaca"
+            ]
+        ]
+    },
+    {
+        "id": "6b56eb31.749724",
+        "type": "ui_button",
+        "z": "e24b1269.772e4",
+        "name": "",
+        "group": "6fd09e10.6cb2e",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Set GPIO 21 (PIN 40) LOW ⬇️",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "num",
+        "topic": "",
+        "x": 170,
+        "y": 120,
+        "wires": [
+            [
+                "b4cd33ec.3eaca"
+            ]
+        ]
+    },
+    {
+        "id": "c001f298.993e3",
+        "type": "ui_button",
+        "z": "e24b1269.772e4",
+        "name": "",
+        "group": "6fd09e10.6cb2e",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Draw recangle on screen",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "",
+        "x": 153,
+        "y": 290,
+        "wires": [
+            [
+                "34bc68e5.9b5c48"
+            ]
+        ]
+    },
+    {
+        "id": "737d29b0.e14dd8",
+        "type": "ui_button",
+        "z": "e24b1269.772e4",
+        "name": "",
+        "group": "6fd09e10.6cb2e",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Clear screen",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "num",
+        "topic": "",
+        "x": 113,
+        "y": 370,
+        "wires": [
+            [
+                "34bc68e5.9b5c48"
+            ]
+        ]
+    },
+    {
+        "id": "f66a408a.3719c",
+        "type": "ui_gauge",
+        "z": "e24b1269.772e4",
+        "name": "",
+        "group": "6fd09e10.6cb2e",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "GPIO 26 (PIN 37)",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1",
+        "colors": [
+            "#b50f03",
+            "#e6e600",
+            "#00ca08"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 350,
+        "y": 200,
+        "wires": []
     }
 ]

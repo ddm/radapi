@@ -15,8 +15,10 @@ RUN apk --no-cache add \
       build-base \
       linux-headers \
       python-dev \
-      yarn
-RUN mkdir -p ${RADAPI_PATH}/data &&\
+      py-pip \
+      yarn &&\
+    pip install rpi.gpio &&\
+    mkdir -p ${RADAPI_PATH}/data &&\
     cd ${RADAPI_PATH} &&\
     yarn global add bower &&\
     yarn global add node-gyp &&\
@@ -27,16 +29,13 @@ FROM arm32v6/alpine:3.10.2
 ARG RADAPI_PATH=/radapi
 
 COPY --from=0 ${RADAPI_PATH} ${RADAPI_PATH}
+COPY --from=0 /usr/lib/python2.7/site-packages/RPi /usr/lib/python2.7/site-packages/RPi
 
 RUN apk --no-cache add --virtual runtime-dependencies \
       nodejs \
       npm \
       bash \
-      python \
-      build-base \
-      python-dev \
-      py-pip &&\
-    pip install rpi.gpio &&\
+      python &&\
     cp ${RADAPI_PATH}/node_modules/@node-red/nodes/core/hardware/nrgpio.py /usr/bin/nrgpio
 
 WORKDIR ${RADAPI_PATH}

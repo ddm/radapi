@@ -9,13 +9,13 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@node-red/editor-api@0.20.7":
-  version "0.20.7"
-  resolved "https://registry.yarnpkg.com/@node-red/editor-api/-/editor-api-0.20.7.tgz#3459cbfad5207036eafeff5925cb7ea9b425b171"
-  integrity sha512-wGuJJ9eyFwHT1PHFOzp+VvXm3MhwKUfxB2uoc6668aKSHILcoOTnOc+i+JUlXxPe2zVu9zulgRiSkrWhDAO2Qw==
+"@node-red/editor-api@0.20.8":
+  version "0.20.8"
+  resolved "https://registry.yarnpkg.com/@node-red/editor-api/-/editor-api-0.20.8.tgz#588588ca198a4a8ec67840aedc5c622585d2c353"
+  integrity sha512-VaetYYU/gu4CgUs80ymiBg9BVw4Ge4kYF4NPgs4S8t/c1BRz2ZZd5idCDw7MaN602eDiYnspx3QMH8X3sqYsTQ==
   dependencies:
-    "@node-red/editor-client" "0.20.7"
-    "@node-red/util" "0.20.7"
+    "@node-red/editor-client" "0.20.8"
+    "@node-red/util" "0.20.8"
     bcryptjs "2.4.3"
     body-parser "1.19.0"
     clone "2.1.2"
@@ -34,15 +34,15 @@
   optionalDependencies:
     bcrypt "3.0.6"
 
-"@node-red/editor-client@0.20.7":
-  version "0.20.7"
-  resolved "https://registry.yarnpkg.com/@node-red/editor-client/-/editor-client-0.20.7.tgz#6a9394b4ad7f1ecb6b1c0776bb97c2d1663784f4"
-  integrity sha512-svF01v6Mn1MYv5bSg/zL86ToCG2yZW3/7SqWTe4cJ1MRCRvllAb1IVCFnWm8sQcgfOGmaLT9q4Jsgb5HAF8M/w==
+"@node-red/editor-client@0.20.8":
+  version "0.20.8"
+  resolved "https://registry.yarnpkg.com/@node-red/editor-client/-/editor-client-0.20.8.tgz#59e312c83d418b58a3ab46addeb377ce173f7588"
+  integrity sha512-TyZ+ma0jRU/T0BChpl17hHa0cMOnPX9DYFbpyT8p5ghRHIHYYL/3rFFflwB+5bAwbK1Y8Z2LKB7dngzL7jzpTQ==
 
-"@node-red/nodes@0.20.7":
-  version "0.20.7"
-  resolved "https://registry.yarnpkg.com/@node-red/nodes/-/nodes-0.20.7.tgz#b9315bbea6be5216320b2ff7249d950dce0666d8"
-  integrity sha512-ZDokAULh6Y+d+8WbjQoYXikinXrV/KVv/q2UGculSgDuDWNIju0A8hQyGBQ3fSBe7PIahl/G4B7Znc4ds1HtEg==
+"@node-red/nodes@0.20.8":
+  version "0.20.8"
+  resolved "https://registry.yarnpkg.com/@node-red/nodes/-/nodes-0.20.8.tgz#fa735450d094f622e5ce61c9273b091856f1e5ca"
+  integrity sha512-yR+kNSkUQowQLHpk7buY36Pz5utA3q3n/49LvgvyxxRwgOPUBv4KNaFLDipUjqgD2spaznh+VTAMT8UUO0xeig==
   dependencies:
     ajv "6.10.0"
     body-parser "1.19.0"
@@ -70,33 +70,33 @@
     ws "6.2.1"
     xml2js "0.4.19"
 
-"@node-red/registry@0.20.7":
-  version "0.20.7"
-  resolved "https://registry.yarnpkg.com/@node-red/registry/-/registry-0.20.7.tgz#3f64286cea2bb6de57f0cdb2051b557f60369217"
-  integrity sha512-TdZVO7DSe21FcF/97zJWVVVaZ7M/z1bbai2vNDIyJA4BFKRadUsCVCkRjgOfJTrmcrvwTqhLKI2yZ53Ovty4HQ==
+"@node-red/registry@0.20.8":
+  version "0.20.8"
+  resolved "https://registry.yarnpkg.com/@node-red/registry/-/registry-0.20.8.tgz#c75314c60fef24650d6acf4c74eeeaec7c3fab72"
+  integrity sha512-3B5wYJOAWNLa3qhzdFZYqHa8X2+U4mdno6f0GQ2vzaNMdcxM9VvkpXLvmnThcQJsYqbxAiwuaUZUL1mX0KePsA==
   dependencies:
-    "@node-red/util" "0.20.7"
+    "@node-red/util" "0.20.8"
     semver "6.2.0"
     uglify-js "3.6.0"
     when "3.7.8"
 
-"@node-red/runtime@0.20.7":
-  version "0.20.7"
-  resolved "https://registry.yarnpkg.com/@node-red/runtime/-/runtime-0.20.7.tgz#2726ff9a316689ae135d6a88dbc2551230edf0eb"
-  integrity sha512-q5VNbwPJfSlBMvY4M31Q0EFvCbM85r28lFBQVqY6Qqqh7QgxFKzJWGfkvqg9GBjUo+Wx1QfdMYJxBZlTmYMARg==
+"@node-red/runtime@0.20.8":
+  version "0.20.8"
+  resolved "https://registry.yarnpkg.com/@node-red/runtime/-/runtime-0.20.8.tgz#fa2b77669c410a5bd319f9d90f7f3c1304b72ad7"
+  integrity sha512-R7X3E8VXGlzXbYd0hTqhgU8rzyc2uNXDb3u37C3rduCViotcKWrQho4n/UdQS4H+T1Bu0H6Zoo+1EGAsQ92nGA==
   dependencies:
-    "@node-red/registry" "0.20.7"
-    "@node-red/util" "0.20.7"
+    "@node-red/registry" "0.20.8"
+    "@node-red/util" "0.20.8"
     clone "2.1.2"
     express "4.17.1"
     fs-extra "8.1.0"
     json-stringify-safe "5.0.1"
     when "3.7.8"
 
-"@node-red/util@0.20.7":
-  version "0.20.7"
-  resolved "https://registry.yarnpkg.com/@node-red/util/-/util-0.20.7.tgz#6819fcb39d4bd0ab877420dbf870d9b841298de9"
-  integrity sha512-LWFC7wFgm0mZJhv+oSELnmRnFawgAByJA6GCdAOnMSLEHJfqcprSHEIYj+S4/rUnS0xjRgL8FO9D+kOWsgVK0A==
+"@node-red/util@0.20.8":
+  version "0.20.8"
+  resolved "https://registry.yarnpkg.com/@node-red/util/-/util-0.20.8.tgz#93328c0c6fb123db17ecfd621a08468830914110"
+  integrity sha512-tid1o8fy94b6XU6/8cVDm5Kn9tNWm1AoaLPrhfDxJaObtrcHC6KtEhJJxPq61nhzZxJOuT/DHqBUGwTXTKg7Zg==
   dependencies:
     clone "2.1.2"
     i18next "15.1.0"
@@ -188,10 +188,10 @@ aproba@^1.0.3:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/aproba/-/aproba-1.2.0.tgz#6802e6264efd18c790a1b0d517f0f2627bf2c94a"
 
-arangojs@6.10.0:
-  version "6.10.0"
-  resolved "https://registry.yarnpkg.com/arangojs/-/arangojs-6.10.0.tgz#343484b64a3eb115fb5e57ea2f099923e8e504ab"
-  integrity sha512-6fRck+EfhcOHz0lXUBaI3LSPoeJgNufyzsAH+xqqmBQOLe+MdKaxj67NG/sqQ/dMmihV7mOFC6PmZpWGTl9WIQ==
+arangojs@6.11.1:
+  version "6.11.1"
+  resolved "https://registry.yarnpkg.com/arangojs/-/arangojs-6.11.1.tgz#79521346a2e545a29cb2e607caae2ca17c30c172"
+  integrity sha512-r5jx0OI8OTMsAeZjUmXsvI1h9JldeKh8pZlYH/qgOzy6q9TGyEElM4pMQ9wurLwL8DVsPToXx8JB5GpEEH3Irg==
   dependencies:
     "@types/node" "*"
     es6-error "^4.0.1"
@@ -1316,10 +1316,10 @@ inflight@^1.0.4:
     once "^1.3.0"
     wrappy "1"
 
-influx@5.4.0:
-  version "5.4.0"
-  resolved "https://registry.yarnpkg.com/influx/-/influx-5.4.0.tgz#844abf569aa3b7073dcc22b8706d8cb6d84c2cd0"
-  integrity sha512-PRIln6uk+wHc3EnumbmUYHHbHXHfYwXg9ObCyfeQF3YRu9l+DoBb/JF/pFYU/PliC1Ky/cBvlzU0In0RrAYsMA==
+influx@5.4.1:
+  version "5.4.1"
+  resolved "https://registry.yarnpkg.com/influx/-/influx-5.4.1.tgz#9aee1ac4862ae59037ef8f334f4571def04117b9"
+  integrity sha512-1gqUPpi/v3PUWwL/ZR7VzWeHrtKfQv/ToFWbIfPF/4aYDtZAB67GEOR7lI1vkxnoPNUdtBq5/esAWKtjCkAAnA==
 
 inherits@2, inherits@2.0.3, inherits@^2.0.1, inherits@^2.0.3, inherits@~2.0.1, inherits@~2.0.3:
   version "2.0.3"
@@ -1852,10 +1852,10 @@ node-red-contrib-string@0.2.2:
   dependencies:
     string "https://github.com/Steveorevo/string.js/archive/3.3.6.tar.gz"
 
-node-red-dashboard@2.15.5:
-  version "2.15.5"
-  resolved "https://registry.yarnpkg.com/node-red-dashboard/-/node-red-dashboard-2.15.5.tgz#08d9f2067a3186ba88186611baf69db74cd5dcc9"
-  integrity sha512-q1SW86sk74UZaaccJo6EjVoplvgQy3XLkHGziriwNjOmq2APEm5FIm6NqOFJpQAU35v3wsLObwbK9xNo8TVNSQ==
+node-red-dashboard@2.16.2:
+  version "2.16.2"
+  resolved "https://registry.yarnpkg.com/node-red-dashboard/-/node-red-dashboard-2.16.2.tgz#cb8bca262e6dd598f354d2bab98c3ce5bd3dae59"
+  integrity sha512-4CyMqrFOmfQG2ABX+VubjB71yHXmYHaBsdUX/uDrK+mGnCVjuQ8ZCWNufS3F7gk7DxEXKFYL25G0EpjkdQ9Z3w==
   dependencies:
     compression "^1.7.4"
     serve-static "^1.14.1"
@@ -1923,15 +1923,15 @@ node-red-node-twitter@^1.1.5:
     request "^2.88.0"
     twitter-ng "0.6.2"
 
-node-red@0.20.7:
-  version "0.20.7"
-  resolved "https://registry.yarnpkg.com/node-red/-/node-red-0.20.7.tgz#3574eeb4c058cbc4cb5def33e4d29c6db8fd7f11"
-  integrity sha512-klwQup/74kYGLBujQj4txrmpMYUdR88A68xjdycedD9dwMDwWCu8NL5t+O8XMWYxJ332hOIgLS62tm8ChxrkuQ==
+node-red@0.20.8:
+  version "0.20.8"
+  resolved "https://registry.yarnpkg.com/node-red/-/node-red-0.20.8.tgz#af2c9b117deecc83e7c913198a732d409beaaff8"
+  integrity sha512-+i2SHPo8AQED0lyf7xoGcWAs142Nc5zvCTzmuncslgxVt/fl6XADEEY4yT/eDVNOwRrf9TZMjhSxBM9ScJJu7Q==
   dependencies:
-    "@node-red/editor-api" "0.20.7"
-    "@node-red/nodes" "0.20.7"
-    "@node-red/runtime" "0.20.7"
-    "@node-red/util" "0.20.7"
+    "@node-red/editor-api" "0.20.8"
+    "@node-red/nodes" "0.20.8"
+    "@node-red/runtime" "0.20.8"
+    "@node-red/util" "0.20.8"
     basic-auth "2.0.1"
     bcryptjs "2.4.3"
     express "4.17.1"
@@ -2155,10 +2155,10 @@ pg-pool@^2.0.4:
   resolved "https://registry.yarnpkg.com/pg-pool/-/pg-pool-2.0.7.tgz#f14ecab83507941062c313df23f6adcd9fd0ce54"
   integrity sha512-UiJyO5B9zZpu32GSlP0tXy8J2NsJ9EFGFfz5v6PSbdz/1hBLX1rNiiy5+mAm5iJJYwfCv4A0EBcQLGWwjbpzZw==
 
-pg-types@~2.0.0:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/pg-types/-/pg-types-2.0.1.tgz#b8585a37f2a9c7b386747e44574799549e5f4933"
-  integrity sha512-b7y6QM1VF5nOeX9ukMQ0h8a9z89mojrBHXfJeSug4mhL0YpxNBm83ot2TROyoAmX/ZOX3UbwVO4EbH7i1ZZNiw==
+pg-types@^2.1.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/pg-types/-/pg-types-2.2.0.tgz#2d0250d636454f7cfa3b6ae0382fdfa8063254a3"
+  integrity sha512-qTAAlrEsl8s4OiEQY69wDvcMIdQN6wdz5ojQiOy6YRMuynxenON0O5oCpJI6lshc6scgAY8qvJ2On/p+CXY0GA==
   dependencies:
     pg-int8 "1.0.1"
     postgres-array "~2.0.0"
@@ -2166,16 +2166,16 @@ pg-types@~2.0.0:
     postgres-date "~1.0.4"
     postgres-interval "^1.1.0"
 
-pg@7.12.0:
-  version "7.12.0"
-  resolved "https://registry.yarnpkg.com/pg/-/pg-7.12.0.tgz#e1b883afe14acb0db58385c20bb7236c7e0aef56"
-  integrity sha512-q54Ic0oBXfDZMwheP8ALeUX32TUXvF7SNgAlZjyhkDuFCJkQCgcLBz0Be5uOrAj3ljSok/CI9lRbYzEko0z1Zw==
+pg@7.12.1:
+  version "7.12.1"
+  resolved "https://registry.yarnpkg.com/pg/-/pg-7.12.1.tgz#880636d46d2efbe0968e64e9fe0eeece8ef72a7e"
+  integrity sha512-l1UuyfEvoswYfcUe6k+JaxiN+5vkOgYcVSbSuw3FvdLqDbaoa2RJo1zfJKfPsSYPFVERd4GHvX3s2PjG1asSDA==
   dependencies:
     buffer-writer "2.0.0"
     packet-reader "1.0.0"
     pg-connection-string "0.1.3"
     pg-pool "^2.0.4"
-    pg-types "~2.0.0"
+    pg-types "^2.1.0"
     pgpass "1.x"
     semver "4.3.2"
 

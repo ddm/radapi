@@ -2,7 +2,7 @@
     {
         "id": "e24b1269.772e4",
         "type": "tab",
-        "label": "DEMO",
+        "label": "MANUAL",
         "disabled": false,
         "info": ""
     },
@@ -72,7 +72,7 @@
         "id": "77aa9ec1.5a588",
         "type": "ui_base",
         "theme": {
-            "name": "theme-light",
+            "name": "theme-dark",
             "lightTheme": {
                 "default": "#0094CE",
                 "baseColor": "#0094CE",
@@ -84,7 +84,8 @@
                 "default": "#097479",
                 "baseColor": "#097479",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
+                "edited": true,
+                "reset": false
             },
             "customTheme": {
                 "name": "Untitled Theme 1",
@@ -94,44 +95,44 @@
             },
             "themeState": {
                 "base-color": {
-                    "default": "#0094CE",
-                    "value": "#0094CE",
+                    "default": "#097479",
+                    "value": "#097479",
                     "edited": false
                 },
                 "page-titlebar-backgroundColor": {
-                    "value": "#0094CE",
+                    "value": "#097479",
                     "edited": false
                 },
                 "page-backgroundColor": {
-                    "value": "#fafafa",
-                    "edited": false
-                },
-                "page-sidebar-backgroundColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "group-textColor": {
-                    "value": "#1bbfff",
-                    "edited": false
-                },
-                "group-borderColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "group-backgroundColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "widget-textColor": {
                     "value": "#111111",
                     "edited": false
                 },
+                "page-sidebar-backgroundColor": {
+                    "value": "#000000",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
                 "widget-backgroundColor": {
-                    "value": "#0094ce",
+                    "value": "#097479",
                     "edited": false
                 },
                 "widget-borderColor": {
-                    "value": "#ffffff",
+                    "value": "#333333",
                     "edited": false
                 },
                 "base-font": {
@@ -250,8 +251,8 @@
         "z": "e24b1269.772e4",
         "name": "",
         "env": [],
-        "x": 424,
-        "y": 89,
+        "x": 520,
+        "y": 120,
         "wires": []
     },
     {
@@ -322,7 +323,7 @@
         "name": "👍",
         "statusCode": "200",
         "headers": {},
-        "x": 650,
+        "x": 710,
         "y": 60,
         "wires": []
     },
@@ -335,7 +336,7 @@
         "method": "post",
         "upload": false,
         "swaggerDoc": "aa48f4a5.5417d8",
-        "x": 160,
+        "x": 130,
         "y": 60,
         "wires": [
             [
@@ -347,11 +348,11 @@
         "id": "7dfbbe32.1063b",
         "type": "function",
         "z": "dba4163.d6839e8",
-        "name": "convert",
+        "name": "\"0\" || \"1\" ➡ 0 || 1",
         "func": "msg.payload = (msg.payload.value === \"0\") ? 0 : 1;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 360,
+        "x": 341,
         "y": 60,
         "wires": [
             [
@@ -364,11 +365,11 @@
         "id": "34e5d96f.bcbd16",
         "type": "function",
         "z": "dba4163.d6839e8",
-        "name": "👍",
+        "name": "0 || 1 ➡ \"0V\" || \"3.3V\"",
         "func": "msg.payload = (msg.payload * 3.3) + \"V\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 516,
+        "x": 546,
         "y": 60,
         "wires": [
             [
@@ -385,7 +386,7 @@
         "method": "post",
         "upload": false,
         "swaggerDoc": "c2fcc43e.7a8438",
-        "x": 170,
+        "x": 152,
         "y": 243,
         "wires": [
             [
@@ -402,7 +403,7 @@
         "method": "post",
         "upload": false,
         "swaggerDoc": "28d71081.9d51d",
-        "x": 170,
+        "x": 152,
         "y": 353,
         "wires": [
             [
@@ -418,7 +419,7 @@
         "func": "msg.payload = 1;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 391,
+        "x": 373,
         "y": 243,
         "wires": [
             [
@@ -434,7 +435,7 @@
         "func": "msg.payload = 0;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 390,
+        "x": 372,
         "y": 353,
         "wires": [
             [
@@ -449,7 +450,7 @@
         "name": "👍",
         "statusCode": "",
         "headers": {},
-        "x": 670,
+        "x": 710,
         "y": 300,
         "wires": []
     },
@@ -458,7 +459,7 @@
         "type": "subflow:127bc0ee.6df25f",
         "z": "dba4163.d6839e8",
         "name": "",
-        "x": 530,
+        "x": 531,
         "y": 300,
         "wires": [
             [
@@ -472,7 +473,7 @@
         "z": "dba4163.d6839e8",
         "name": "",
         "env": [],
-        "x": 520,
+        "x": 500,
         "y": 140,
         "wires": []
     },
@@ -485,8 +486,8 @@
         "intype": "tri",
         "debounce": "25",
         "read": false,
-        "x": 110,
-        "y": 200,
+        "x": 250,
+        "y": 240,
         "wires": [
             [
                 "f66a408a.3719c"
@@ -498,8 +499,8 @@
         "type": "subflow:127bc0ee.6df25f",
         "z": "e24b1269.772e4",
         "name": "",
-        "x": 363,
-        "y": 346,
+        "x": 459,
+        "y": 377,
         "wires": [
             []
         ]
@@ -514,7 +515,7 @@
         "width": 0,
         "height": 0,
         "passthru": false,
-        "label": "Set GPIO 21 (PIN 40) HIGH ⬆️",
+        "label": "GPIO 21 ➡ 3.3V",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -522,8 +523,8 @@
         "payload": "1",
         "payloadType": "num",
         "topic": "",
-        "x": 170,
-        "y": 60,
+        "x": 216,
+        "y": 91,
         "wires": [
             [
                 "b4cd33ec.3eaca"
@@ -540,7 +541,7 @@
         "width": 0,
         "height": 0,
         "passthru": false,
-        "label": "Set GPIO 21 (PIN 40) LOW ⬇️",
+        "label": "GPIO 21 ➡ 0V",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -548,8 +549,8 @@
         "payload": "0",
         "payloadType": "num",
         "topic": "",
-        "x": 170,
-        "y": 120,
+        "x": 216,
+        "y": 151,
         "wires": [
             [
                 "b4cd33ec.3eaca"
@@ -574,8 +575,8 @@
         "payload": "1",
         "payloadType": "num",
         "topic": "",
-        "x": 153,
-        "y": 290,
+        "x": 249,
+        "y": 321,
         "wires": [
             [
                 "34bc68e5.9b5c48"
@@ -600,8 +601,8 @@
         "payload": "0",
         "payloadType": "num",
         "topic": "",
-        "x": 113,
-        "y": 370,
+        "x": 209,
+        "y": 401,
         "wires": [
             [
                 "34bc68e5.9b5c48"
@@ -630,8 +631,88 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 350,
-        "y": 200,
+        "x": 490,
+        "y": 240,
         "wires": []
+    },
+    {
+        "id": "60ab8c40.2b1ea4",
+        "type": "inject",
+        "z": "e24b1269.772e4",
+        "name": "do",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 91,
+        "y": 459,
+        "wires": [
+            [
+                "737d29b0.e14dd8"
+            ]
+        ]
+    },
+    {
+        "id": "50887cd2.ed7044",
+        "type": "inject",
+        "z": "e24b1269.772e4",
+        "name": "do",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 90,
+        "y": 40,
+        "wires": [
+            [
+                "14429a2a.249ac6"
+            ]
+        ]
+    },
+    {
+        "id": "4afe2727.d410d8",
+        "type": "inject",
+        "z": "e24b1269.772e4",
+        "name": "do",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 90,
+        "y": 205,
+        "wires": [
+            [
+                "6b56eb31.749724"
+            ]
+        ]
+    },
+    {
+        "id": "47b5d156.a5151",
+        "type": "inject",
+        "z": "e24b1269.772e4",
+        "name": "do",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 90,
+        "y": 263,
+        "wires": [
+            [
+                "c001f298.993e3"
+            ]
+        ]
     }
 ]

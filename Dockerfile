@@ -35,8 +35,7 @@ RUN apk --no-cache add --virtual runtime-dependencies \
       nodejs \
       npm \
       bash \
-      python &&\
-    cp ${RADAPI_PATH}/node_modules/@node-red/nodes/core/hardware/nrgpio.py /usr/bin/nrgpio
+      python
 
 WORKDIR ${RADAPI_PATH}
 

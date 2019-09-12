@@ -16,7 +16,7 @@
     {
         "id": "a3fefd86.2db11",
         "type": "subflow",
-        "name": "GPIO",
+        "name": "PIN: 40",
         "info": "",
         "category": "",
         "in": [
@@ -248,7 +248,7 @@
         "id": "b4cd33ec.3eaca",
         "type": "subflow:a3fefd86.2db11",
         "z": "e24b1269.772e4",
-        "name": "PIN: 40",
+        "name": "",
         "env": [],
         "x": 424,
         "y": 89,
@@ -471,7 +471,8 @@
         "type": "subflow:a3fefd86.2db11",
         "z": "dba4163.d6839e8",
         "name": "",
-        "x": 510,
+        "env": [],
+        "x": 520,
         "y": 140,
         "wires": []
     },
@@ -565,7 +566,7 @@
         "width": 0,
         "height": 0,
         "passthru": false,
-        "label": "Draw recangle on screen",
+        "label": "Draw rectangle on screen",
         "tooltip": "",
         "color": "",
         "bgcolor": "",

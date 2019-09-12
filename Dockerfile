@@ -30,6 +30,7 @@ ARG RADAPI_PATH=/radapi
 
 COPY --from=0 ${RADAPI_PATH} ${RADAPI_PATH}
 COPY --from=0 /usr/lib/python2.7/site-packages/RPi /usr/lib/python2.7/site-packages/RPi
+COPY demo/flows.json ${RADAPI_PATH}/data/flows.json
 
 RUN apk --no-cache add --virtual runtime-dependencies \
       nodejs \
@@ -43,6 +44,7 @@ ENV NODE_ENV=production
 VOLUME ${RADAPI_PATH}/data
 VOLUME ${RADAPI_PATH}/public
 VOLUME /dev/mem
+VOLUME /dev/i2c-1
 VOLUME /sys/class/gpio
 
 EXPOSE 1880

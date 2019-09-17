@@ -42,7 +42,7 @@
         "in": [
             {
                 "x": 60,
-                "y": 80,
+                "y": 100,
                 "wires": [
                     {
                         "id": "772bf478.87d83c"
@@ -53,7 +53,7 @@
         "out": [
             {
                 "x": 580,
-                "y": 80,
+                "y": 100,
                 "wires": [
                     {
                         "id": "657b23f0.ccdf6c",
@@ -260,11 +260,11 @@
         "type": "function",
         "z": "127bc0ee.6df25f",
         "name": "draw rectangle on OLED",
-        "func": "var i2c = global.get(\"i2c\");\nvar i2cBus = i2c.openSync(1);\n\nconst SIZE_X=128;\nconst SIZE_Y=64;\n\nvar opts = {\n  width: SIZE_X,\n  height: SIZE_Y,\n  address: 0x3C\n};\n\nvar Oled = global.get(\"oled\");\nvar oled = new Oled(i2cBus, opts);\n\noled.clearDisplay();\noled.turnOnDisplay();\n\noled.drawPixel([\n    [SIZE_X-1, 0, 1],\n    [SIZE_X-1, SIZE_Y-1, 1],\n    [0, SIZE_Y-1, 1],\n    [0, 0, 1]\n]);\n\noled.drawLine(1, 1, SIZE_X-2, 1, 1);\noled.drawLine(SIZE_X-2, 1, SIZE_X-2, SIZE_Y-2, 1);\noled.drawLine(SIZE_X-2, SIZE_Y-2, 1, SIZE_Y-2, 1);\noled.drawLine(1, SIZE_Y-2, 1, 1, 1);\n\nmsg.payload = \"You should see a rectangle on the screen 👍\";\nreturn msg;",
+        "func": "var i2c = global.get(\"i2c\");\nvar i2cBus = i2c.openSync(1);\n\nconst SIZE_X=128;\nconst SIZE_Y=64;\n\nvar opts = {\n  width: SIZE_X,\n  height: SIZE_Y,\n  address: 0x3C\n};\n\nvar Oled = global.get(\"oled\");\nvar oled = new Oled(i2cBus, opts);\n\noled.clearDisplay();\noled.turnOnDisplay();\n\noled.drawPixel([\n    [SIZE_X-1, 0, 1],\n    [SIZE_X-1, SIZE_Y-1, 1],\n    [0, SIZE_Y-1, 1],\n    [0, 0, 1]\n]);\n\noled.drawLine(1, 1, SIZE_X-2, 1, 1);\noled.drawLine(SIZE_X-2, 1, SIZE_X-2, SIZE_Y-2, 1);\noled.drawLine(SIZE_X-2, SIZE_Y-2, 1, SIZE_Y-2, 1);\noled.drawLine(1, SIZE_Y-2, 1, 1, 1);\n\nmsg.payload = \"You should see a 🖾 on the screen 👍\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 370,
-        "y": 120,
+        "y": 160,
         "wires": [
             []
         ]
@@ -278,7 +278,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 360,
-        "y": 20,
+        "y": 40,
         "wires": [
             []
         ]
@@ -294,19 +294,19 @@
             {
                 "t": "eq",
                 "v": "0",
-                "vt": "str"
+                "vt": "num"
             },
             {
                 "t": "neq",
                 "v": "0",
-                "vt": "str"
+                "vt": "num"
             }
         ],
         "checkall": "true",
         "repair": false,
         "outputs": 2,
         "x": 170,
-        "y": 80,
+        "y": 100,
         "wires": [
             [
                 "657b23f0.ccdf6c"
@@ -486,8 +486,8 @@
         "intype": "tri",
         "debounce": "25",
         "read": false,
-        "x": 250,
-        "y": 240,
+        "x": 390,
+        "y": 180,
         "wires": [
             [
                 "f66a408a.3719c"
@@ -514,7 +514,7 @@
         "order": 1,
         "width": 0,
         "height": 0,
-        "passthru": false,
+        "passthru": true,
         "label": "GPIO 21 ➡ 3.3V",
         "tooltip": "",
         "color": "",
@@ -540,7 +540,7 @@
         "order": 2,
         "width": 0,
         "height": 0,
-        "passthru": false,
+        "passthru": true,
         "label": "GPIO 21 ➡ 0V",
         "tooltip": "",
         "color": "",
@@ -566,8 +566,8 @@
         "order": 3,
         "width": 0,
         "height": 0,
-        "passthru": false,
-        "label": "Draw rectangle on screen",
+        "passthru": true,
+        "label": "🖾",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -575,7 +575,7 @@
         "payload": "1",
         "payloadType": "num",
         "topic": "",
-        "x": 249,
+        "x": 189,
         "y": 321,
         "wires": [
             [
@@ -592,7 +592,7 @@
         "order": 4,
         "width": 0,
         "height": 0,
-        "passthru": false,
+        "passthru": true,
         "label": "Clear screen",
         "tooltip": "",
         "color": "",
@@ -631,8 +631,8 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 490,
-        "y": 240,
+        "x": 573,
+        "y": 180,
         "wires": []
     },
     {
@@ -708,7 +708,7 @@
         "once": false,
         "onceDelay": 0.1,
         "x": 90,
-        "y": 263,
+        "y": 268,
         "wires": [
             [
                 "c001f298.993e3"

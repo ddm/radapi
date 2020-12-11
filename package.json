@@ -21,22 +21,22 @@
     "start": "node index"
   },
   "dependencies": {
-    "arangojs": "6.13.0",
-    "async": "3.1.1",
-    "elasticsearch": "16.6.0",
+    "arangojs": "7.2.0",
+    "async": "3.2.0",
+    "elasticsearch": "16.7.2",
     "express": "4.17.1",
-    "influx": "5.5.1",
-    "node-red": "1.0.3",
-    "node-red-contrib-string": "0.2.2",
-    "node-red-dashboard": "2.19.3",
-    "node-red-node-random": "0.1.4",
+    "influx": "5.6.3",
+    "node-red": "1.2.6",
+    "node-red-contrib-string": "1.0.0",
+    "node-red-dashboard": "2.25.0",
+    "node-red-node-random": "0.2.0",
     "node-red-node-smooth": "0.1.2",
     "node-red-node-swagger": "0.1.9",
-    "pg": "7.17.1",
-    "prom-client": "11.5.3",
-    "redis": "2.8.0",
+    "pg": "8.5.1",
+    "prom-client": "12.0.0",
+    "redis": "3.0.2",
     "rethinkdb": "2.4.2",
-    "underscore": "1.9.2"
+    "underscore": "1.12.0"
   },
   "devDependencies": {
     "bower": "1.8.8"

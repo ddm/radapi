@@ -28,7 +28,7 @@
     "influx": "5.6.3",
     "node-red": "1.2.6",
     "node-red-contrib-string": "1.0.0",
-    "node-red-dashboard": "2.25.0",
+    "node-red-dashboard": "2.26.2",
     "node-red-node-random": "0.2.0",
     "node-red-node-smooth": "0.1.2",
     "node-red-node-swagger": "0.1.9",
